@@ -1,31 +1,36 @@
 import { CatchingPokemon, GitHub, Mail } from "@mui/icons-material";
-import { Drawer, Grid, List } from "@mui/material";
+import { Divider, Drawer, List, Typography } from "@mui/material";
 import ListItemLink from "./ListItemLink";
+import GrassboxIcon from ".././assets/GrassboxIcon.svg";
+import { Box } from "@mui/system";
+
 
 const SideNav = () => {
   return (
-    <Drawer anchor="left" variant="persistent" open>
-      <Grid container direction="column" gap="1rem">
-        <Grid item>
-          <List>
-            <ListItemLink
-              Icon={GitHub}
-              text="Github"
-              href="https://github.com/roccomaniscalco"
-            />
-            <ListItemLink
-              Icon={Mail}
-              text="Inbox"
-              href="https://outlook.office365.com/mail/inbox"
-            />
-            <ListItemLink
-              Icon={CatchingPokemon}
-              text="Pokédex"
-              href="https://pokemondb.net/pokedex/national"
-            />
-          </List>
-        </Grid>
-      </Grid>
+    <Drawer anchor="left" variant="persistent">
+      <Box display="flex" alignItems="center" gap="1rem" sx={{ paddingX: 4 }}>
+        <GrassboxIcon style={{ height: "4rem" }} />
+        <Typography variant={"h5"}>grassbox</Typography>
+      </Box>
+      <Divider />
+
+      <List>
+        <ListItemLink
+          Icon={GitHub}
+          text="Github"
+          href="https://github.com/roccomaniscalco"
+        />
+        <ListItemLink
+          Icon={Mail}
+          text="Inbox"
+          href="https://outlook.office365.com/mail/inbox"
+        />
+        <ListItemLink
+          Icon={CatchingPokemon}
+          text="Pokédex"
+          href="https://pokemondb.net/pokedex/national"
+        />
+      </List>
     </Drawer>
   );
 };
