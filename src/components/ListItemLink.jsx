@@ -1,21 +1,26 @@
+import { styled } from "@mui/system";
 import {
   Link,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  useMediaQuery,
 } from "@mui/material";
-import { styled } from "@mui/system";
 
 const ListItemLinkButton = styled(ListItemButton)(({ theme }) => ({
+  name: "ListItemLinkButton",
   borderRadius: 10,
-  marginLeft: theme.spacing(2),
-  marginRight: theme.spacing(2),
+  marginLeft: theme.spacing(1),
+  marginRight: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    margin: 0,
+  },
 }));
 
 const ListItemLink = ({ href, Icon, text }) => {
   return (
-    <ListItem disablePadding>
+    <ListItem >
       <ListItemLinkButton component={Link} href={href}>
         <ListItemIcon>
           <Icon fontSize="small" />

@@ -1,20 +1,11 @@
 import { CatchingPokemon, GitHub, Mail } from "@mui/icons-material";
-import { Divider, Drawer, List, Typography } from "@mui/material";
+import { Drawer, List } from "@mui/material";
 import ListItemLink from "./ListItemLink";
-import GrassboxIcon from ".././assets/GrassboxIcon.svg";
-import { Box } from "@mui/system";
 
-
-const SideNav = () => {
+const SideNav = ({ isOpen }) => {
   return (
-    <Drawer anchor="left" variant="persistent">
-      <Box display="flex" alignItems="center" gap="1rem" sx={{ paddingX: 4 }}>
-        <GrassboxIcon style={{ height: "4rem" }} />
-        <Typography variant={"h5"}>grassbox</Typography>
-      </Box>
-      <Divider />
-
-      <List>
+    <Drawer anchor="left" variant="persistent" open={isOpen}>
+      <List dense sx={{ width: "15rem", marginTop: "70px" }}>
         <ListItemLink
           Icon={GitHub}
           text="Github"

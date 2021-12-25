@@ -1,11 +1,10 @@
-import HelloWorld from "../components/HelloWorld";
-import SideNav from "../components/SideNav";
+
+import Nav from "../components/Nav";
 
 const Index = () => {
   return (
     <>
-      <HelloWorld />
-      <SideNav />
+<Nav />
     </>
   );
 };
