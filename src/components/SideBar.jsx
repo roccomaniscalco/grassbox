@@ -2,10 +2,10 @@ import { CatchingPokemon, GitHub, Mail } from "@mui/icons-material";
 import { Drawer, List } from "@mui/material";
 import ListItemLink from "./ListItemLink";
 
-const SideNav = ({ isOpen }) => {
+const SideBar = ({ isOpen, width }) => {
   return (
     <Drawer anchor="left" variant="persistent" open={isOpen}>
-      <List dense sx={{ width: "15rem", marginTop: "70px" }}>
+      <List sx={{ width: width, marginTop: "70px" }}>
         <ListItemLink
           Icon={GitHub}
           text="Github"
@@ -26,4 +26,4 @@ const SideNav = ({ isOpen }) => {
   );
 };
 
-export default SideNav;
+export default SideBar;

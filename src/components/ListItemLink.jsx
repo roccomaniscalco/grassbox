@@ -5,22 +5,16 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  useMediaQuery,
 } from "@mui/material";
 
-const ListItemLinkButton = styled(ListItemButton)(({ theme }) => ({
+const ListItemLinkButton = styled(ListItemButton)({
   name: "ListItemLinkButton",
   borderRadius: 10,
-  marginLeft: theme.spacing(1),
-  marginRight: theme.spacing(1),
-  [theme.breakpoints.down("sm")]: {
-    margin: 0,
-  },
-}));
+});
 
 const ListItemLink = ({ href, Icon, text }) => {
   return (
-    <ListItem >
+    <ListItem>
       <ListItemLinkButton component={Link} href={href}>
         <ListItemIcon>
           <Icon fontSize="small" />
