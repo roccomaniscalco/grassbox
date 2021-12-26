@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import createEmotionCache from '../styles/createEmotionCache';
-import theme from '../styles/theme';
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { CacheProvider } from "@emotion/react";
+
+import createEmotionCache from "../styles/createEmotionCache";
+import theme from "../styles/theme";
+import DefaultLayout from "../layouts/DefaultLayout";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -18,11 +19,13 @@ const App = (props) => {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <DefaultLayout>
+          <Component {...pageProps} />
+        </DefaultLayout>
       </ThemeProvider>
     </CacheProvider>
   );
-}
+};
 
 App.propTypes = {
   Component: PropTypes.elementType.isRequired,
@@ -30,4 +33,4 @@ App.propTypes = {
   pageProps: PropTypes.object.isRequired,
 };
 
-export default App
+export default App;

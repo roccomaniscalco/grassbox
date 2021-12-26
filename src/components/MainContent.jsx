@@ -3,7 +3,6 @@ import { Box, styled } from "@mui/material";
 const MainContentContainer = styled("main", {
   shouldForwardProp: (prop) => prop !== "isOpen" && prop !== "sideBarWidth",
 })(({ theme, isOpen, sideBarWidth }) => ({
-  border: "5px solid red",
   width: isOpen ? `calc(100% - ${sideBarWidth})` : "100%",
   transition: theme.transitions.create("width", {
     ...(isOpen
