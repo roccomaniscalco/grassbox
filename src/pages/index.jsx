@@ -1,5 +1,6 @@
 import { Box, Card } from "@mui/material";
 import DataContainer from "../components/data/DataContainer";
+import UserProfile from "../components/UserProfile";
 
 const Index = () => {
   return (
@@ -10,12 +11,12 @@ const Index = () => {
       height="80vh"
     >
       <Card
-        variant="outlined"
-        sx={{ height: "600px", width: "400px", bgcolor: "grey.900" }}
+        elevation={2}
+        sx={{ height: "510px", width: "350px" }}
       >
         <DataContainer
-          endpoint="https://randomuser.me/api/"
-          render={(data) => <>{JSON.stringify(data)}</>}
+          endpoint="https://randomuser.me/api/?nat=us"
+          render={(data) => <UserProfile userData={data} />}
         />
       </Card>
     </Box>
