@@ -9,7 +9,7 @@ import {
   useMediaQuery,
   styled
 } from "@mui/material";
-import GrassboxIcon from ".././assets/GrassboxIcon.svg";
+import GrassboxIcon from "../../assets/GrassboxIcon.svg";
 
 const HeaderOffset = styled("div")(({ theme }) => theme.mixins.toolbar);
 

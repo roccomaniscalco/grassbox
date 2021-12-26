@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 
-import Header from "../components/TopNav";
-import SideBar from "../components/SideBar";
-import MainContent from "../components/MainContent";
+import Header from "../components/layoutSections/TopNav";
+import SideBar from "../components/layoutSections/SideBar";
+import MainContent from "../components/layoutSections/MainContent";
 
 const DefaultLayout = ({ children }) => {
   const sideBarWidth = "15rem";
