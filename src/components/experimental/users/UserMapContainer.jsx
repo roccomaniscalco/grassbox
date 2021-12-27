@@ -1,5 +1,5 @@
-import DataContainer from "./data/DataContainer";
-import ErrorIndicator from "./data/ErrorIndicator";
+import DataContainer from "../../data/DataContainer";
+import ErrorIndicator from "../../data/ErrorIndicator";
 import UserMap from "./UserMap";
 
 const UserMapContainer = ({ city }) => {

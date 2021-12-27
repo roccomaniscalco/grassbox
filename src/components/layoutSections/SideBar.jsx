@@ -1,4 +1,4 @@
-import { CatchingPokemon, GitHub, Mail } from "@mui/icons-material";
+import { CatchingPokemon, GitHub, Mail, PersonRounded } from "@mui/icons-material";
 import { Drawer, List } from "@mui/material";
 import ListItemLink from "./ListItemLink";
 
@@ -20,6 +20,11 @@ const SideBar = ({ isOpen, width }) => {
           Icon={CatchingPokemon}
           text="Pokédex"
           href="https://pokemondb.net/pokedex/national"
+        />
+        <ListItemLink
+          Icon={PersonRounded}
+          text="Users"
+          href="/experimental/users"
         />
       </List>
     </Drawer>

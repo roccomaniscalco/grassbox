@@ -14,7 +14,7 @@ import {
 
 import UserMapContainer from "./UserMapContainer";
 
-const UserProfile = ({ user }) => {
+const UserCard = ({ user }) => {
   return (
     <Card elevation={2} sx={{ height: "380px", width: "330px" }}>
       {/* public info */}
@@ -60,4 +60,4 @@ const UserProfile = ({ user }) => {
   );
 };
 
-export default UserProfile;
+export default UserCard;
