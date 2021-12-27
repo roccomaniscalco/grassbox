@@ -1,8 +1,12 @@
 import { Map, ZoomControl } from "pigeon-maps";
 
-const UserMap = ({ coords }) => {
+const UserMap = ({ latitude, longitude, log }) => {
   return (
-    <Map defaultCenter={[coords.latitude, coords.longitude]} defaultZoom={10}>
+    <Map
+      defaultCenter={[latitude, longitude]}
+      defaultZoom={13}
+      mouseEvents={false}
+    >
       <ZoomControl />
     </Map>
   );

@@ -11,7 +11,7 @@ const CenterChild = styled(Box)({
   height: "100%",
 });
 
-const ErrorIndicator = ({error}) => {
+const ErrorIndicator = ({ error }) => {
   return (
     <CenterChild>
       <TransitionGroup>
@@ -21,7 +21,7 @@ const ErrorIndicator = ({error}) => {
         <Slide>
           <Box>
             <Typography variant="h4" textAlign="center">
-              {error.status}
+              {error?.status}
             </Typography>
           </Box>
         </Slide>

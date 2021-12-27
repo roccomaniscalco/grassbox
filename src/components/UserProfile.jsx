@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Card,
   CardContent,
   CardHeader,
   CardMedia,
@@ -11,13 +12,11 @@ import {
   Typography,
 } from "@mui/material";
 
-import UserMap from "./UserMap";
+import UserMapContainer from "./UserMapContainer";
 
-const UserProfile = ({ userData }) => {
-  const user = userData.results[0];
-
+const UserProfile = ({ user }) => {
   return (
-    <>
+    <Card elevation={2} sx={{ height: "380px", width: "330px" }}>
       {/* public info */}
       <CardHeader
         avatar={<Avatar src={user.picture.medium} />}
@@ -25,33 +24,39 @@ const UserProfile = ({ userData }) => {
         subheader={user.email}
       />
       {/* geographic location */}
-      <CardMedia sx={{ height: "250px" }}>
-        <UserMap coords={user.location.coordinates} />
+      <CardMedia sx={{ height: "200px" }}>
+        <UserMapContainer city={user.location.city} />
       </CardMedia>
       {/* login credentials */}
       <CardContent>
         <TableContainer elevation={4}>
-          <Table>
+          <Table size="small">
             <TableBody>
               <TableRow>
-                <TableCell>Username</TableCell>
-                <TableCell>{user.login.username}</TableCell>
+                <TableCell>
+                  <Typography variant="body2" color="textSecondary">
+                    Username
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <code>{user.login.username}</code>
+                </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Password</TableCell>
-                <TableCell>{user.login.password}</TableCell>
+                <TableCell>
+                  <Typography variant="body2" color="textSecondary">
+                    Password
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <code>{user.login.password}</code>
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
       </CardContent>
-      {/* uuid */}
-      <CardContent sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <Typography variant="caption" color="highlight" textAlign="center">
-          {user.login.uuid}
-        </Typography>
-      </CardContent>
-    </>
+    </Card>
   );
 };
 

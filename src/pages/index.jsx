@@ -1,24 +1,14 @@
-import { Box, Card } from "@mui/material";
+import { Box } from "@mui/material";
 import DataContainer from "../components/data/DataContainer";
-import UserProfile from "../components/UserProfile";
+import UserProfileGrid from "../components/UserProfileGrid";
 
 const Index = () => {
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="80vh"
-    >
-      <Card
-        elevation={2}
-        sx={{ height: "510px", width: "350px" }}
-      >
-        <DataContainer
-          endpoint="https://randomuser.me/api/?nat=us"
-          render={(data) => <UserProfile userData={data} />}
-        />
-      </Card>
+    <Box display="flex" justifyContent="center" alignItems="center">
+      <DataContainer
+        endpoint={`https://randomuser.me/api/?nat=us&results=24`}
+        render={(data) => <UserProfileGrid users={data.results} />}
+      />
     </Box>
   );
 };
