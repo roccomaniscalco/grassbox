@@ -25,7 +25,7 @@ const UserMap = ({ city }) => {
 
   return (
     <>
-      {/* Map Header */}
+      {/* Header */}
       <CardContent>
         <Paper elevation={6} sx={{ whiteSpace: "nowrap" }}>
           <Box display="flex" alignItems="center" gap={1} padding={1}>

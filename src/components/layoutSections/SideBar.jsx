@@ -28,7 +28,9 @@ const SideBar = ({ isOpen, width, toggleOpen }) => {
       variant={isSmall ? "temporary" : "persistent"}
       open={isOpen}
       onClose={() => toggleOpen()}
+      PaperProps={{ variant: "outlined" }}
     >
+      {/* Header */}
       <HeaderOffset display="flex" alignItems="center" paddingX={4}>
         <GrassboxIcon height={20} width={20} />
         <Box pl={3}>
@@ -36,6 +38,7 @@ const SideBar = ({ isOpen, width, toggleOpen }) => {
         </Box>
       </HeaderOffset>
       <Divider />
+      {/* Content */}
       <List sx={{ width: width }}>
         <ListItemLink
           Icon={GitHub}
