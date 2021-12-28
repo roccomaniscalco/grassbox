@@ -3,8 +3,6 @@ const fetcher = async (url) => {
 
   if (!res.ok) {
     const error = new Error("Failed to retrieve data.");
-
-    // error.info = await res.json();
     error.status = res.status;
     throw error;
   }

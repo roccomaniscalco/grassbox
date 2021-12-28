@@ -12,11 +12,11 @@ import {
   Typography,
 } from "@mui/material";
 
-import UserMapContainer from "./UserMapContainer";
+import UserMap from "./UserMap";
 
 const UserCard = ({ user }) => {
   return (
-    <Card elevation={2} sx={{ height: "380px", width: "330px" }}>
+    <Card elevation={2} sx={{ height: "447px", width: "330px" }}>
       {/* public info */}
       <CardHeader
         avatar={<Avatar src={user.picture.medium} />}
@@ -24,9 +24,7 @@ const UserCard = ({ user }) => {
         subheader={user.email}
       />
       {/* geographic location */}
-      <CardMedia sx={{ height: "200px" }}>
-        <UserMapContainer city={user.location.city} />
-      </CardMedia>
+        <UserMap city={user.location.city} />
       {/* login credentials */}
       <CardContent>
         <TableContainer elevation={4}>

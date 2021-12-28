@@ -1,21 +1,24 @@
 import { Grid } from "@mui/material";
-import DataContainer from "../../data/DataContainer";
+
+import useRandomUsers from "../../../hooks/useRandomUsers";
+import ErrorIndicator from "../../data/ErrorIndicator";
+import LoadingIndicator from "../../data/LoadingIndicator";
 import UserCard from "./UserCard";
 
 const UserCardsGrid = () => {
+  const { users, error } = useRandomUsers(24);
+
+  if (error) return <ErrorIndicator error={error} />;
+  if (!users) return <LoadingIndicator />;
+
   return (
-    <DataContainer
-      endpoint={`https://randomuser.me/api/?nat=us&results=24`}
-      render={({ results: users }) => (
-        <Grid container spacing={3} justifyContent="center" maxWidth="1500px">
-          {users.map((user) => (
-            <Grid item key={user.login.uuid}>
-              <UserCard user={user} />
-            </Grid>
-          ))}
+    <Grid container spacing={3} justifyContent="center" maxWidth="1500px">
+      {users.map((user) => (
+        <Grid item key={user.login.uuid}>
+          <UserCard user={user} />
         </Grid>
-      )}
-    />
+      ))}
+    </Grid>
   );
 };
 

@@ -16,12 +16,13 @@ const ErrorIndicator = ({ error }) => {
     <CenterChild>
       <TransitionGroup>
         <Slide>
-          <ReportProblemRoundedIcon sx={{ fontSize: 80 }} color="error" />
-        </Slide>
-        <Slide>
-          <Box>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <ReportProblemRoundedIcon sx={{ fontSize: 80 }} color="error" />
             <Typography variant="h4" textAlign="center">
-              {error?.status}
+              {error.status}
+            </Typography>
+            <Typography variant="caption" color="textSecondary" textAlign="center">
+              {error.message}
             </Typography>
           </Box>
         </Slide>

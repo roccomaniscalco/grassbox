@@ -4,7 +4,7 @@ import CenterChild from "../styled/CenterChild";
 const LoadingIndicator = () => {
   return (
     <CenterChild>
-      <CircularProgress color={"success"} size={60}/>
+      <CircularProgress color={"success"} size={60} />
     </CenterChild>
   );
 };
