@@ -19,7 +19,7 @@ const MainContentContainer = styled("main", {
 
 const MainContent = ({ isOpen, sideBarWidth, children }) => {
   return (
-    <Box display="flex" justifyContent="flex-end">
+    <Box display="flex" justifyContent="flex-end" overflow="hidden">
       <MainContentContainer isOpen={isOpen} sideBarWidth={sideBarWidth}>
         {children}
       </MainContentContainer>

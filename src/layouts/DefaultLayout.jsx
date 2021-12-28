@@ -7,7 +7,7 @@ import MainContent from "../components/layoutSections/MainContent";
 
 const DefaultLayout = ({ children }) => {
   const sideBarWidth = "15rem";
-  const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmall = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -22,7 +22,7 @@ const DefaultLayout = ({ children }) => {
   return (
     <>
       <Header toggleOpen={toggleOpen} />
-      <SideBar isOpen={isOpen} width={sideBarWidth} />
+      <SideBar isOpen={isOpen} width={sideBarWidth} toggleOpen={toggleOpen} />
       <MainContent isOpen={isOpen} sideBarWidth={sideBarWidth}>
         {children}
       </MainContent>
