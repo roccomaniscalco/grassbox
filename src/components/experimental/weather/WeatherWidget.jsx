@@ -9,7 +9,7 @@ import LocaleHeader from "./LocaleHeader";
 import HourlyForecast from "./HourlyForecast";
 
 const WeatherWidget = () => {
-  const [city, setCity] = useState("saudi arabia");
+  const [city, setCity] = useState("atlanta");
 
   const { location, error: locationError } = useGeocoding(city);
   const { weather, error: weatherError } = useWeather(

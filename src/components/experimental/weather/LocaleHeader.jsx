@@ -22,6 +22,7 @@ const LocaleHeader = ({ city, state, country, weather }) => {
         justifyContent: "space-between",
         gap: 2,
         alignItems: "center",
+        py: 1,
       }}
     >
       <Box>
@@ -32,12 +33,12 @@ const LocaleHeader = ({ city, state, country, weather }) => {
           {city}, {state ? state : country}
         </Typography>
       </Box>
-      <Box display="flex" alignItems="center" gap={1}>
+      <Box display="flex" alignItems="center">
         <Image
           src={`https://openweathermap.org/img/wn/${weather.current.weather[0].icon}@4x.png`}
           layout="fixed"
-          width="40%"
-          height="40%"
+          width="60px"
+          height="60px"
         />
 
         <Typography variant="h3">{weather.current.temp.toFixed()}°F</Typography>
