@@ -2,7 +2,7 @@ import useSWRImmutable from "swr/immutable";
 import fetcher from "../utils/fetcher";
 
 const unit = "imperial";
-const exclude = ["minutely", "daily", "alerts"];
+const exclude = ["minutely", "alerts"];
 
 const useWeather = (lat, lon) => {
   const { data, error } = useSWRImmutable(

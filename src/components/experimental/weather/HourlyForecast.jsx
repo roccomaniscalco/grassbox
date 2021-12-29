@@ -6,12 +6,13 @@ import {
   ListItem,
   Typography,
   styled,
+  Box,
 } from "@mui/material";
 import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
 
 import ScrollBox from "../../styled/ScrollBox";
 import toPercent from "../../../utils/toPercent";
-import { Box } from "@mui/system";
+import Pop from "./Pop";
 
 const formatDate = (date, timeZone) => {
   const formatter = new Intl.DateTimeFormat([], {
@@ -33,33 +34,21 @@ const HourPaper = styled(Paper)(({ theme }) => ({
 }));
 
 const HourlyForecast = ({ weather }) => {
-  console.log(weather);
-
   return (
     <CardContent component={ScrollBox}>
       <List disablePadding sx={{ display: "flex", gap: 1 }}>
         {/* display forecast of next 24 hours */}
         {weather.hourly.slice(0, 24).map((hour) => (
           <ListItem disablePadding key={hour.dt}>
-            <HourPaper elevation={4}>
+            <HourPaper variant="outlined">
               {/* time */}
               <Typography variant="body2" color="textSecondary">
                 {formatDate(new Date(hour.dt * 1000), weather.timezone)}
               </Typography>
+
               {/* probability of precipitation */}
-              {hour.pop > 0 && (
-                <Typography
-                  component="div"
-                  variant="caption"
-                  color="primary"
-                  textAlign="center"
-                  gap={0.5}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
-                  <OpacityRoundedIcon fontSize="inherit" />{" "}
-                  {toPercent(hour.pop)}
-                </Typography>
-              )}
+              {hour.pop > 0 && <Pop pop={hour.pop} />}
+
               <Box position="absolute" bottom={(theme) => theme.spacing(1)}>
                 {/* icon */}
                 <Image
@@ -68,9 +57,10 @@ const HourlyForecast = ({ weather }) => {
                   width="40px"
                   height="40px"
                 />
+
                 {/* temperature */}
                 <Typography variant="body1" textAlign="center">
-                  <strong>{hour.temp.toFixed()}°F</strong>
+                  <strong>{hour.temp.toFixed()}°</strong>
                 </Typography>
               </Box>
             </HourPaper>

@@ -3,7 +3,7 @@ import { Box, styled } from "@mui/material";
 const ScrollBox = styled(Box)({
   overflow: "auto",
   scrollbarColor: "transparent transparent",
-  "-ms-overflow-style": "none",
+  msOverflowStyle: "none",
   "::-webkit-scrollbar": {
     display: "none",
   },

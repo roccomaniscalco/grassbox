@@ -7,9 +7,10 @@ import LoadingIndicator from "../../data/LoadingIndicator";
 import useGeocoding from "../../../hooks/useGeocoding";
 import LocaleHeader from "./LocaleHeader";
 import HourlyForecast from "./HourlyForecast";
+import DailyForecast from "./DailyForecast";
 
 const WeatherWidget = () => {
-  const [city, setCity] = useState("atlanta");
+  const [city, setCity] = useState("prague");
 
   const { location, error: locationError } = useGeocoding(city);
   const { weather, error: weatherError } = useWeather(
@@ -22,7 +23,7 @@ const WeatherWidget = () => {
   if (!location || !weather) return <LoadingIndicator />;
 
   return (
-    <Card variant="outlined" sx={{ height: "300px", width: "500px" }}>
+    <Card variant="outlined" sx={{ width: "500px" }}>
       <LocaleHeader
         city={location.name}
         state={location.state}
@@ -32,6 +33,7 @@ const WeatherWidget = () => {
       <Divider />
       <HourlyForecast weather={weather} />
       <Divider />
+      <DailyForecast weather={weather} />
     </Card>
   );
 };
