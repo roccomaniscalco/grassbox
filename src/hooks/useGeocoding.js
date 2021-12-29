@@ -12,7 +12,7 @@ const useGeocoding = (city) => {
 
   useEffect(() => {
     if (!data?.[0] && !error && !isValidating) {
-      const error = new Error("Failed to retrieve user coordinates.");
+      const error = new Error("Failed to retrieve coordinates.");
       error.status = 404;
       setTimeoutError(error);
     }
