@@ -3,9 +3,7 @@ import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
 
 import toPercent from "../../../utils/toPercent";
 
-const Pop = ({ pop }) => {
-  console.log(pop);
-
+const Pop = ({ children }) => {
   return (
     <Typography
       component="div"
@@ -15,7 +13,7 @@ const Pop = ({ pop }) => {
       sx={{ display: "flex", alignItems: "center" }}
     >
       <OpacityRoundedIcon fontSize="inherit" />
-      {toPercent(pop)}
+      {toPercent(children)}
     </Typography>
   );
 };

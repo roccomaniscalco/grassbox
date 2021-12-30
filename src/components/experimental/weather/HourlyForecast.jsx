@@ -47,7 +47,7 @@ const HourlyForecast = ({ weather }) => {
               </Typography>
 
               {/* probability of precipitation */}
-              {hour.pop > 0 && <Pop pop={hour.pop} />}
+              {hour.pop > 0 && <Pop>{hour.pop}</Pop>}
 
               <Box position="absolute" bottom={(theme) => theme.spacing(1)}>
                 {/* icon */}

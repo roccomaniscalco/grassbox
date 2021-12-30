@@ -10,7 +10,7 @@ import HourlyForecast from "./HourlyForecast";
 import DailyForecast from "./DailyForecast";
 
 const WeatherWidget = () => {
-  const [city, setCity] = useState("prague");
+  const [city, setCity] = useState("sao paulo");
 
   const { location, error: locationError } = useGeocoding(city);
   const { weather, error: weatherError } = useWeather(
