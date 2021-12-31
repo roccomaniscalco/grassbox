@@ -22,11 +22,9 @@ const formatDate = (date, timeZone) => {
 };
 
 const DailyForecast = ({ weather }) => {
-  console.log(weather);
-
   return (
     <TableContainer component={ScrollBox}>
-      <Box minWidth={"350px"}>
+      <Box minWidth="400px">
         <Table size="small">
           <TableBody>
             {weather.daily.slice(0, 5).map((day) => (

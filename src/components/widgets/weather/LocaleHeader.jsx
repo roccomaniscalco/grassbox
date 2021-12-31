@@ -1,4 +1,4 @@
-import { Box, CardContent, Typography } from "@mui/material";
+import { Box, CardContent, Divider, Typography } from "@mui/material";
 import Temp from "./Temperature";
 
 import WeatherIcon from "./WeatherIcon";
@@ -17,7 +17,7 @@ const formatDate = (date, timeZone) => {
   return formatter.format(date);
 };
 
-const LocaleHeader = ({ city, state, country, weather }) => {
+const LocaleHeader = ({ city, weather }) => {
   return (
     <CardContent
       sx={{
@@ -33,9 +33,7 @@ const LocaleHeader = ({ city, state, country, weather }) => {
         <Typography variant="caption" color="success.main">
           {formatDate(new Date(Date.now()), weather.timezone)}
         </Typography>
-        <Typography variant="body1">
-          {city}, {state ? state : country}
-        </Typography>
+        <Typography variant="body1">{city}</Typography>
       </Box>
       {/* current temperature */}
       <Box display="flex" alignItems="center">
