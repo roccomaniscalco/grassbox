@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { Box, Container, styled } from "@mui/material";
 
 const MainContentContainer = styled("main", {
   shouldForwardProp: (prop) => prop !== "isOpen" && prop !== "sideBarWidth",
@@ -21,7 +21,9 @@ const MainContent = ({ isOpen, sideBarWidth, children }) => {
   return (
     <Box display="flex" justifyContent="flex-end" overflow="hidden">
       <MainContentContainer isOpen={isOpen} sideBarWidth={sideBarWidth}>
-        {children}
+        <Container maxWidth="xl" sx={{ paddingTop: 6 }}>
+          {children}
+        </Container>
       </MainContentContainer>
     </Box>
   );

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   CardContent,
   Paper,
@@ -8,11 +7,10 @@ import {
   styled,
   Box,
 } from "@mui/material";
-import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
 
 import ScrollBox from "../../styled/ScrollBox";
-import toPercent from "../../../utils/toPercent";
 import Pop from "./Pop";
+import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {
   const formatter = new Intl.DateTimeFormat([], {
@@ -39,7 +37,11 @@ const HourlyForecast = ({ weather }) => {
       <List disablePadding sx={{ display: "flex", gap: 1 }}>
         {/* display forecast of next 24 hours */}
         {weather.hourly.slice(0, 24).map((hour) => (
-          <ListItem disablePadding key={hour.dt}>
+          <ListItem
+            disablePadding
+            key={hour.dt}
+            sx={{ "&:last-child": { pr: 2 } }}
+          >
             <HourPaper variant="outlined">
               {/* time */}
               <Typography variant="body2" color="textSecondary">
@@ -51,9 +53,8 @@ const HourlyForecast = ({ weather }) => {
 
               <Box position="absolute" bottom={(theme) => theme.spacing(1)}>
                 {/* icon */}
-                <Image
-                  src={`https://openweathermap.org/img/wn/${hour.weather[0].icon}@4x.png`}
-                  layout="fixed"
+                <WeatherIcon
+                  iconCode={hour.weather[0].icon}
                   width="40px"
                   height="40px"
                 />

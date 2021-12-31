@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
 
 import useRandomUsers from "../../../hooks/useRandomUsers";
-import ErrorIndicator from "../../data/ErrorIndicator";
-import LoadingIndicator from "../../data/LoadingIndicator";
+import ErrorIndicator from "../../common/ErrorIndicator";
+import LoadingIndicator from "../../common/LoadingIndicator";
 import UserCard from "./UserCard";
 
 const UserCardsGrid = () => {

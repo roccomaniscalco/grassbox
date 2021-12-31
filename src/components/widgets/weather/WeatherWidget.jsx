@@ -2,15 +2,17 @@ import { useState } from "react";
 import { Card, Divider } from "@mui/material";
 
 import useWeather from "../../../hooks/useWeather";
-import ErrorIndicator from "../../data/ErrorIndicator";
-import LoadingIndicator from "../../data/LoadingIndicator";
+import ErrorIndicator from "../../common/ErrorIndicator";
+import LoadingIndicator from "../../common/LoadingIndicator";
 import useGeocoding from "../../../hooks/useGeocoding";
 import LocaleHeader from "./LocaleHeader";
 import HourlyForecast from "./HourlyForecast";
 import DailyForecast from "./DailyForecast";
+import WidgetContainer from "../../common/WidgetContainer";
+import WeatherPreferences from "./WeatherPreferences";
 
 const WeatherWidget = () => {
-  const [city, setCity] = useState("sao paulo");
+  const [city, setCity] = useState("belo horizonte");
 
   const { location, error: locationError } = useGeocoding(city);
   const { weather, error: weatherError } = useWeather(
@@ -23,18 +25,20 @@ const WeatherWidget = () => {
   if (!location || !weather) return <LoadingIndicator />;
 
   return (
-    <Card variant="outlined" sx={{ width: "500px" }}>
-      <LocaleHeader
-        city={location.name}
-        state={location.state}
-        country={location.country}
-        weather={weather}
-      />
-      <Divider />
-      <HourlyForecast weather={weather} />
-      <Divider />
-      <DailyForecast weather={weather} />
-    </Card>
+    <WidgetContainer PreferencesPanel={WeatherPreferences}>
+      <Card variant="outlined">
+        <LocaleHeader
+          city={location.name}
+          state={location.state}
+          country={location.country}
+          weather={weather}
+        />
+        <Divider />
+        <HourlyForecast weather={weather} />
+        <Divider />
+        <DailyForecast weather={weather} />
+      </Card>
+    </WidgetContainer>
   );
 };
 

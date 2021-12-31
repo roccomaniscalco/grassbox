@@ -40,6 +40,7 @@ const DailyForecast = ({ weather }) => {
                     display="flex"
                     justifyContent={"space-between"}
                     alignItems={"center"}
+                    maxWidth={"140px"}
                   >
                     <WeatherIcon
                       iconCode={day.weather[0].icon}

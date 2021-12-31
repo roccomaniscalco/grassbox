@@ -3,8 +3,8 @@ import { Box, Paper, CardMedia, CardContent } from "@mui/material";
 import RoomRoundedIcon from "@mui/icons-material/RoomRounded";
 
 import useGeocoding from "../../../hooks/useGeocoding";
-import LoadingIndicator from "../../data/LoadingIndicator";
-import ErrorIndicator from "../../data/ErrorIndicator";
+import LoadingIndicator from "../../common/LoadingIndicator";
+import ErrorIndicator from "../../common/ErrorIndicator";
 
 const UserMap = ({ city }) => {
   const { location, error } = useGeocoding(city);

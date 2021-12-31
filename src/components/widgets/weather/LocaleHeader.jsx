@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { Box, CardContent, Typography } from "@mui/material";
+
+import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {
   const options = {
@@ -37,11 +38,10 @@ const LocaleHeader = ({ city, state, country, weather }) => {
       </Box>
       {/* current temperature */}
       <Box display="flex" alignItems="center">
-        <Image
-          src={`https://openweathermap.org/img/wn/${weather.current.weather[0].icon}@4x.png`}
-          layout="fixed"
-          width="60px"
-          height="60px"
+        <WeatherIcon
+          iconCode={weather.current.weather[0].icon}
+          width="40px"
+          height="40px"
         />
         <Typography variant="h3">{weather.current.temp.toFixed()}°</Typography>
       </Box>
