@@ -10,6 +10,7 @@ import {
 
 import ScrollBox from "../../styled/ScrollBox";
 import Pop from "./Pop";
+import Temp from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {
@@ -61,7 +62,9 @@ const HourlyForecast = ({ weather }) => {
 
                 {/* temperature */}
                 <Typography variant="body1" textAlign="center">
-                  <strong>{hour.temp.toFixed()}°</strong>
+                  <strong>
+                    <Temp>{hour.temp.toFixed()}</Temp>
+                  </strong>
                 </Typography>
               </Box>
             </HourPaper>

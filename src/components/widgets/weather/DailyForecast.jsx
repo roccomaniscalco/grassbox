@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 
 import ScrollBox from "../../styled/ScrollBox";
+import Temp from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {
@@ -48,11 +49,13 @@ const DailyForecast = ({ weather }) => {
                       height="30px"
                     />
                     <Typography>
-                      <strong>{day.temp.max.toFixed()}°</strong>
+                      <strong>
+                        <Temp>{day.temp.max.toFixed()}</Temp>
+                      </strong>
                     </Typography>
                     <Typography color="textSecondary"> / </Typography>
                     <Typography color="textSecondary">
-                      {day.temp.min.toFixed()}°
+                      <Temp>{day.temp.min.toFixed()}</Temp>
                     </Typography>
                   </Box>
                 </TableCell>

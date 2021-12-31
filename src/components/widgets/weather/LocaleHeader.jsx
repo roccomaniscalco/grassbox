@@ -1,4 +1,5 @@
 import { Box, CardContent, Typography } from "@mui/material";
+import Temp from "./Temperature";
 
 import WeatherIcon from "./WeatherIcon";
 
@@ -43,7 +44,9 @@ const LocaleHeader = ({ city, state, country, weather }) => {
           width="40px"
           height="40px"
         />
-        <Typography variant="h3">{weather.current.temp.toFixed()}°</Typography>
+        <Typography variant="h3">
+          <Temp>{weather.current.temp}</Temp>
+        </Typography>
       </Box>
     </CardContent>
   );

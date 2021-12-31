@@ -25,7 +25,6 @@ const WeatherPreferences = () => {
   return (
     <Paper>
       <Box
-        width="200px"
         display="flex"
         flexDirection={"column"}
         gap={1}
