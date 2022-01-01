@@ -34,6 +34,7 @@ const LocaleInput = ({ showAdornment = true }) => {
       value={value}
       variant="standard"
       placeholder="Search for city"
+      fullWidth
       InputProps={{
         disableUnderline: error ? false : true,
         startAdornment: showAdornment && (
@@ -46,7 +47,6 @@ const LocaleInput = ({ showAdornment = true }) => {
       onFocus={handleFocus}
       onChange={(e) => handleChange(e)}
       onBlur={handleBlur}
-      // helperText={error && "Invalid city"}
     />
   );
 };

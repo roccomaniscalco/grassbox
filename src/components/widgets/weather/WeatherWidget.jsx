@@ -14,23 +14,16 @@ import WeatherPreferences from "./WeatherPreferences";
 import { useWeatherContext } from "../../../contexts/WeatherContext";
 
 const WeatherWidget = () => {
-  const { showHourlyForecast, showDailyForecast } = useWeatherContext();
-  const [city, setCity] = useState("belo horizonte");
+  const { showHourlyForecast, showDailyForecast, locale } = useWeatherContext();
+  const { weather, error } = useWeather(locale?.lat, locale?.lon);
 
-  const { location, error: locationError } = useGeocoding(city);
-  const { weather, error: weatherError } = useWeather(
-    location?.lat,
-    location?.lon
-  );
-
-  if (locationError || weatherError)
-    return <ErrorIndicator error={locationError || weatherError} />;
-  if (!location || !weather) return <LoadingIndicator />;
+  if (error) return <ErrorIndicator error={error} />;
+  if (!locale || !weather) return <LoadingIndicator />;
 
   return (
     <WidgetContainer PreferencesPanel={WeatherPreferences}>
       <Card variant="outlined">
-        <LocaleHeader city={location.name} weather={weather} />
+        <LocaleHeader city={locale.name} weather={weather} />
         <Divider />
         <TransitionGroup>
           {showHourlyForecast && (
