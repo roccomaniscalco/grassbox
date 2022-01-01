@@ -9,20 +9,21 @@ const WidgetBox = styled(Box)({
 
 const WidgetContainer = ({ children, PreferencesPanel }) => {
   const containerRef = useRef(null);
-  const [showFab, setShowFab] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseEnter = () => {
-    if (PreferencesPanel) setShowFab(true);
-  };
-  const handleMouseLeave = () => {
-    if (PreferencesPanel) setShowFab(false);
+  const toggleHover = () => {
+    if (PreferencesPanel) setIsHovered(!isHovered);
   };
 
   return (
-    <WidgetBox ref={containerRef} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <WidgetBox
+      ref={containerRef}
+      onMouseEnter={toggleHover}
+      onMouseLeave={toggleHover}
+    >
       <WidgetPreferences
         PreferencesPanel={PreferencesPanel}
-        showFab={showFab}
+        showFab={isHovered}
         containerRef={containerRef}
       />
       {children}

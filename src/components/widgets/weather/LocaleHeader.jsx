@@ -1,4 +1,4 @@
-import { Box, CardContent, Divider, Typography } from "@mui/material";
+import { Box, CardContent, Typography } from "@mui/material";
 import Temp from "./Temperature";
 
 import WeatherIcon from "./WeatherIcon";

@@ -1,14 +1,11 @@
-import { Box } from "@mui/material";
+import LocaleInput from "../components/widgets/weather/LocaleInput";
+import { WeatherProvider } from "../contexts/WeatherContext";
 
 const Index = () => {
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      padding={4}
-    ></Box>
+    <WeatherProvider>
+      <LocaleInput />
+    </WeatherProvider>
   );
 };
 

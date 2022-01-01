@@ -8,7 +8,11 @@ const WeatherProvider = ({ children }) => {
   const [showHourlyForecast, toggleShowHourlyForecast] = useToggle(true);
   const [showDailyForecast, toggleShowDailyForecast] = useToggle(true);
   const [isFahrenheit, toggleIsFahrenheit] = useToggle(false);
-  const [location, setLocation] = useState("Atlanta");
+  const [locale, setLocale] = useState({
+    name: "Atlanta",
+    lat: 33.7489924,
+    lon: -84.3902644,
+  });
 
   const weatherValue = {
     showCurrentDetails,
@@ -19,8 +23,8 @@ const WeatherProvider = ({ children }) => {
     toggleShowDailyForecast,
     isFahrenheit,
     toggleIsFahrenheit,
-    location,
-    setLocation,
+    locale,
+    setLocale,
   };
 
   return (
