@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { TextField, useTheme } from "@mui/material";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useWeatherContext } from "../../../contexts/WeatherContext";
 import useGeocoding from "../../../hooks/useGeocoding";
 
-const LocaleInput = ({ showAdornment = true }) => {
+const LocaleInput = () => {
   const theme = useTheme();
 
   const { locale, setLocale } = useWeatherContext();
@@ -21,7 +20,8 @@ const LocaleInput = ({ showAdornment = true }) => {
 
   const handleFocus = () => setValue("");
   const handleChange = (e) => setValue(e.target.value);
-  const handleBlur = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!value) {
       setValue(locale.name);
       setSearch(locale.name);
@@ -29,25 +29,27 @@ const LocaleInput = ({ showAdornment = true }) => {
   };
 
   return (
-    <TextField
-      error={error ? true : false}
-      value={value}
-      variant="standard"
-      placeholder="Search for city"
-      fullWidth
-      InputProps={{
-        disableUnderline: error ? false : true,
-        startAdornment: showAdornment && (
-          <SearchRoundedIcon
-            htmlColor={theme.palette.action.disabled}
-            sx={{ pr: 1 }}
-          />
-        ),
-      }}
-      onFocus={handleFocus}
-      onChange={(e) => handleChange(e)}
-      onBlur={handleBlur}
-    />
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <TextField
+        fullWidth
+        error={error ? true : false}
+        value={value}
+        variant="standard"
+        placeholder="Search for city..."
+        InputProps={{
+          disableUnderline: error ? false : true,
+          startAdornment: (
+            <LocationOnIcon
+              htmlColor={theme.palette.action.disabled}
+              sx={{ pr: 1 }}
+            />
+          ),
+        }}
+        onFocus={handleFocus}
+        onChange={(e) => handleChange(e)}
+        onBlur={handleSubmit}
+      />
+    </form>
   );
 };
 
