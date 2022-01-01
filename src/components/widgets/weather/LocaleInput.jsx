@@ -14,7 +14,6 @@ const LocaleInput = ({ showAdornment = true }) => {
   const { location, error } = useGeocoding(search);
 
   useEffect(() => {
-    console.log(location)
     if (!location?.name) return;
     setLocale(location);
     setValue(location.name);
@@ -30,27 +29,25 @@ const LocaleInput = ({ showAdornment = true }) => {
   };
 
   return (
-    <>
-      <TextField
-        value={value}
-        variant="standard"
-        placeholder="Search for city"
-        InputProps={{
-          disableUnderline: true,
-          startAdornment: showAdornment && (
-            <SearchRoundedIcon
-              htmlColor={theme.palette.action.disabled}
-              sx={{ pr: 1 }}
-            />
-          ),
-        }}
-        onFocus={handleFocus}
-        onChange={(e) => handleChange(e)}
-        onBlur={handleBlur}
-      />
-      {error && "error"}
-      {!error && !location && "loading..."}
-    </>
+    <TextField
+      error={error ? true : false}
+      value={value}
+      variant="standard"
+      placeholder="Search for city"
+      InputProps={{
+        disableUnderline: error ? false : true,
+        startAdornment: showAdornment && (
+          <SearchRoundedIcon
+            htmlColor={theme.palette.action.disabled}
+            sx={{ pr: 1 }}
+          />
+        ),
+      }}
+      onFocus={handleFocus}
+      onChange={(e) => handleChange(e)}
+      onBlur={handleBlur}
+      // helperText={error && "Invalid city"}
+    />
   );
 };
 
