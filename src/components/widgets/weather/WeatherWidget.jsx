@@ -9,12 +9,12 @@ import HourlyForecast from "./HourlyForecast";
 import DailyForecast from "./DailyForecast";
 import WeatherPreferences from "./WeatherPreferences";
 import { useWeatherContext } from "../../../contexts/WeatherContext";
+import CurrentDetails from "./CurrentDetails";
 
 const WeatherWidget = () => {
-  const { showHourlyForecast, showDailyForecast, locale } = useWeatherContext();
+  const { showCurrentDetails, showHourlyForecast, showDailyForecast, locale } =
+    useWeatherContext();
   const { weather, error } = useWeather(locale?.lat, locale?.lon);
-
-  console.log(locale)
 
   if (error)
     return (
@@ -29,16 +29,21 @@ const WeatherWidget = () => {
     <WidgetContainer PreferencesPanel={WeatherPreferences}>
       <Card variant="outlined">
         <LocaleHeader city={locale.name} weather={weather} />
-        <Divider />
         <TransitionGroup>
+          {showCurrentDetails && (
+            <Collapse in>
+              <CurrentDetails weather={weather} />
+            </Collapse>
+          )}
           {showHourlyForecast && (
             <Collapse in>
-              <HourlyForecast weather={weather} />
               <Divider />
+              <HourlyForecast weather={weather} />
             </Collapse>
           )}
           {showDailyForecast && (
             <Collapse in>
+              <Divider />
               <DailyForecast weather={weather} />
             </Collapse>
           )}

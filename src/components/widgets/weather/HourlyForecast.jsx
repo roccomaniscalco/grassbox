@@ -1,5 +1,4 @@
 import {
-  CardContent,
   Paper,
   List,
   ListItem,
@@ -53,7 +52,7 @@ const HourlyForecast = ({ weather }) => {
     );
 
   return ( 
-    <CardContent component={ScrollBox}>
+    <ScrollBox p={2}>
       <List disablePadding sx={{ display: "flex", gap: 1 }}>
         {/* display forecast of next 24 hours */}
         {weather.hourly.slice(0, 24).map((hour) => (
@@ -90,7 +89,7 @@ const HourlyForecast = ({ weather }) => {
           </ListItem>
         ))}
       </List>
-    </CardContent>
+    </ScrollBox>
   );
 };
 

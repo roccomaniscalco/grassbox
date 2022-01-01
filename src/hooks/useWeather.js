@@ -1,7 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import fetcher from "../utils/fetcher";
 
-const unit = "imperial";
 const exclude = ["minutely", "alerts"];
 
 const useWeather = (lat, lon) => {
