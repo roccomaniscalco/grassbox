@@ -1,5 +1,7 @@
 import {
   Box,
+  Skeleton,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -22,6 +24,17 @@ const formatDate = (date, timeZone) => {
 };
 
 const DailyForecast = ({ weather }) => {
+  if (!weather)
+    return (
+      <Stack justifyContent="space-between" height="210px" p={2}>
+        <Skeleton animation="wave" variant="text" />
+        <Skeleton animation="wave" variant="text" />
+        <Skeleton animation="wave" variant="text" />
+        <Skeleton animation="wave" variant="text" />
+        <Skeleton animation="wave" variant="text" />
+      </Stack>
+    );
+
   return (
     <TableContainer component={ScrollBox}>
       <Box minWidth="400px">

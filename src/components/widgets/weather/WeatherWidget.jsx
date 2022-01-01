@@ -3,7 +3,6 @@ import { TransitionGroup } from "react-transition-group";
 
 import useWeather from "../../../hooks/useWeather";
 import ErrorIndicator from "../../common/ErrorIndicator";
-import LoadingIndicator from "../../common/LoadingIndicator";
 import WidgetContainer from "../../common/WidgetContainer";
 import LocaleHeader from "./LocaleHeader";
 import HourlyForecast from "./HourlyForecast";
@@ -15,6 +14,8 @@ const WeatherWidget = () => {
   const { showHourlyForecast, showDailyForecast, locale } = useWeatherContext();
   const { weather, error } = useWeather(locale?.lat, locale?.lon);
 
+  console.log(locale)
+
   if (error)
     return (
       <Card variant="outlined">
@@ -23,7 +24,6 @@ const WeatherWidget = () => {
         </CardContent>
       </Card>
     );
-  if (!locale || !weather) return <LoadingIndicator />;
 
   return (
     <WidgetContainer PreferencesPanel={WeatherPreferences}>

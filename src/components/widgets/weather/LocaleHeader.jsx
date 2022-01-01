@@ -1,4 +1,4 @@
-import { Box, CardContent, Typography } from "@mui/material";
+import { Box, CardContent, Skeleton, Typography } from "@mui/material";
 import LocaleInput from "./LocaleInput";
 import Temp from "./Temperature";
 
@@ -32,19 +32,33 @@ const LocaleHeader = ({ weather }) => {
       {/* time and location */}
       <Box>
         <Typography variant="caption" color="success.main">
-          {formatDate(new Date(Date.now()), weather.timezone)}
+          {weather ? (
+            formatDate(new Date(Date.now()), weather.timezone)
+          ) : (
+            <Skeleton />
+          )}
         </Typography>
         <LocaleInput />
       </Box>
       {/* current temperature */}
       <Box display="flex" alignItems="center">
-        <WeatherIcon
-          iconCode={weather.current.weather[0].icon}
-          width="40px"
-          height="40px"
-        />
-        <Typography variant="h3">
-          <Temp>{weather.current.temp}</Temp>
+        {weather ? (
+          <WeatherIcon
+            iconCode={weather.current.weather[0].icon}
+            width="40px"
+            height="40px"
+          />
+        ) : (
+          <Box p={1}>
+            <Skeleton variant="circular" width="40px" height="40px" />
+          </Box>
+        )}
+        <Typography variant="h4">
+          {weather ? (
+            <Temp>{weather.current.temp}</Temp>
+          ) : (
+            <Skeleton width="60px" />
+          )}
         </Typography>
       </Box>
     </CardContent>

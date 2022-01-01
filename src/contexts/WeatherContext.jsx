@@ -9,9 +9,9 @@ const WeatherProvider = ({ children }) => {
   const [showDailyForecast, toggleShowDailyForecast] = useToggle(true);
   const [isFahrenheit, toggleIsFahrenheit] = useToggle(false);
   const [locale, setLocale] = useState({
-    name: "Atlanta",
-    lat: 33.7489924,
-    lon: -84.3902644,
+    lat: -23.5507,
+    lon: -46.6334,
+    name: "São Paulo",
   });
 
   const weatherValue = {

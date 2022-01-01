@@ -6,6 +6,8 @@ import {
   Typography,
   styled,
   Box,
+  Stack,
+  Skeleton,
 } from "@mui/material";
 
 import ScrollBox from "../../styled/ScrollBox";
@@ -33,7 +35,24 @@ const HourPaper = styled(Paper)(({ theme }) => ({
 }));
 
 const HourlyForecast = ({ weather }) => {
-  return (
+  if (!weather)
+    return (
+      <Stack
+        justifyContent="space-between"
+        direction="row"
+        height="152px"
+        spacing={1}
+        p={2}
+      >
+        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
+        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
+        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
+        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
+        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
+      </Stack>
+    );
+
+  return ( 
     <CardContent component={ScrollBox}>
       <List disablePadding sx={{ display: "flex", gap: 1 }}>
         {/* display forecast of next 24 hours */}
