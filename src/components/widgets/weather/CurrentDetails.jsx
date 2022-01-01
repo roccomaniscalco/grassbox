@@ -1,4 +1,4 @@
-import { Box, capitalize, Grid, Typography } from "@mui/material";
+import { Box, capitalize, Grid, Skeleton, Stack, Typography } from "@mui/material";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
@@ -54,7 +54,17 @@ const formatDate = (date, timeZone) => {
 };
 
 const CurrentDetails = ({ weather }) => {
-  if (!weather) return null;
+  if (!weather)
+    return (
+      <Stack height="4rem" justifyContent="space-between" pb={2} px={2}>
+        <Typography variant="caption">
+          <Skeleton variant="text" />
+        </Typography>
+        <Typography variant="caption">
+          <Skeleton variant="text" />
+        </Typography>
+      </Stack>
+    );
 
   return (
     <Box pt={0} px={2} pb={2}>
