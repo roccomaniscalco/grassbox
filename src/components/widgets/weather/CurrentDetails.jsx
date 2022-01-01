@@ -43,6 +43,16 @@ const switchDirection = (deg) => {
   }
 };
 
+const formatDate = (date, timeZone) => {
+  const formatter = new Intl.DateTimeFormat([], {
+    timeZone,
+    hour: "numeric",
+    minute: "numeric",
+  });
+
+  return formatter.format(date);
+};
+
 const CurrentDetails = ({ weather }) => {
   if (!weather) return null;
 
@@ -71,7 +81,7 @@ const CurrentDetails = ({ weather }) => {
         <Grid item xs={4}>
           <Typography variant="caption" color="textSecondary">
             <WbSunnyRoundedIcon fontSize="inherit" sx={{ mr: 1 }} />
-            {weather.current.sunrise}
+            {formatDate(weather.current.sunrise * 1000, weather.timezone)}
           </Typography>
         </Grid>
         <Grid item xs={4}>
@@ -88,7 +98,7 @@ const CurrentDetails = ({ weather }) => {
         <Grid item xs={4}>
           <Typography variant="caption" color="textSecondary">
             <ModeNightRoundedIcon fontSize="inherit" sx={{ mr: 1 }} />
-            {weather.current.sunset}
+            {formatDate(weather.current.sunset * 1000, weather.timezone)}
           </Typography>
         </Grid>
       </Grid>

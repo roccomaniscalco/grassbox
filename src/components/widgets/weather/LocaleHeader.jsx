@@ -33,7 +33,7 @@ const LocaleHeader = ({ weather }) => {
       <Box>
         <Typography variant="caption" color="success.main">
           {weather ? (
-            formatDate(new Date(Date.now()), weather.timezone)
+            formatDate(Date.now(), weather.timezone)
           ) : (
             <Skeleton />
           )}

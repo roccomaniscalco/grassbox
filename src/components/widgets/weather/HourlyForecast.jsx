@@ -64,7 +64,7 @@ const HourlyForecast = ({ weather }) => {
             <HourPaper variant="outlined">
               {/* time */}
               <Typography variant="body2" color="textSecondary">
-                {formatDate(new Date(hour.dt * 1000), weather.timezone)}
+                {formatDate(hour.dt * 1000, weather.timezone)}
               </Typography>
 
               {/* probability of precipitation */}
