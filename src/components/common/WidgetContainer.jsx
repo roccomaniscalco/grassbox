@@ -11,15 +11,18 @@ const WidgetContainer = ({ children, PreferencesPanel }) => {
   const containerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  const toggleHover = () => {
-    if (PreferencesPanel) setIsHovered(!isHovered);
+  const handleMouseEnter = () => {
+    if (PreferencesPanel) setIsHovered(true);
+  };
+  const handleMouseLeave = () => {
+    if (PreferencesPanel) setIsHovered(false);
   };
 
   return (
     <WidgetBox
       ref={containerRef}
-      onMouseEnter={toggleHover}
-      onMouseLeave={toggleHover}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <WidgetPreferences
         PreferencesPanel={PreferencesPanel}
