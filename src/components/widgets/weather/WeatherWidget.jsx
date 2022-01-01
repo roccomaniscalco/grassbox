@@ -1,9 +1,7 @@
-import { useState } from "react";
-import { Card, Collapse, Divider } from "@mui/material";
+import { Card, CardContent, Collapse, Divider } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
 
 import useWeather from "../../../hooks/useWeather";
-import useGeocoding from "../../../hooks/useGeocoding";
 import ErrorIndicator from "../../common/ErrorIndicator";
 import LoadingIndicator from "../../common/LoadingIndicator";
 import WidgetContainer from "../../common/WidgetContainer";
@@ -17,7 +15,14 @@ const WeatherWidget = () => {
   const { showHourlyForecast, showDailyForecast, locale } = useWeatherContext();
   const { weather, error } = useWeather(locale?.lat, locale?.lon);
 
-  if (error) return <ErrorIndicator error={error} />;
+  if (error)
+    return (
+      <Card variant="outlined">
+        <CardContent>
+          <ErrorIndicator error={error} />
+        </CardContent>
+      </Card>
+    );
   if (!locale || !weather) return <LoadingIndicator />;
 
   return (
