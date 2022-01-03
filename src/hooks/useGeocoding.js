@@ -16,7 +16,7 @@ const useGeocoding = (city) => {
       error.status = 404;
       setTimeoutError(error);
     } else setTimeoutError(null);
-  }, [data, isValidating]);
+  }, [data, error, isValidating]);
 
   return { location: data?.[0], error: error || timeoutError, mutate };
 };

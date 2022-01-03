@@ -3,8 +3,9 @@ import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import SpeedRoundedIcon from "@mui/icons-material/SpeedRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import { Box, Grid, Skeleton, Stack, Typography } from "@mui/material";
+import { useWeatherContext } from "../../../contexts/WeatherContext";
+import useWeather from "../../../hooks/useWeather";
 import isWithinRange from "../../../utils/isWithinRange";
-
 
 const switchDirection = (deg) => {
   switch (true) {
@@ -53,7 +54,10 @@ const formatDate = (date, timeZone) => {
   return formatter.format(date);
 };
 
-const CurrentDetails = ({ weather }) => {
+const CurrentDetails = () => {
+  const { locale } = useWeatherContext();
+  const { weather } = useWeather(locale?.lat, locale?.lon);
+
   if (!weather)
     return (
       <Stack height="4rem" justifyContent="space-between" pb={2} px={2}>

@@ -3,6 +3,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import {
   AppBar, Box, Divider, IconButton, styled, Toolbar, useMediaQuery
 } from "@mui/material";
+import { func } from "prop-types";
 
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar);
 
@@ -39,5 +40,9 @@ const Header = ({ toggleOpen }) => {
     </>
   );
 };
+
+Header.propTypes = {
+  toggleOpen: func.isRequired
+}
 
 export default Header;

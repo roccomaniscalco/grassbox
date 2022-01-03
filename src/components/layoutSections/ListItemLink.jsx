@@ -6,6 +6,7 @@ import {
   ListItemText,
   styled
 } from "@mui/material";
+import { elementType, string } from "prop-types";
 
 const ListItemLinkButton = styled(ListItemButton)({
   name: "ListItemLinkButton",
@@ -23,6 +24,12 @@ const ListItemLink = ({ href, Icon, text }) => {
       </ListItemLinkButton>
     </ListItem>
   );
+};
+
+ListItemLink.propTypes = {
+  href: string.isRequired,
+  Icon: elementType,
+  text: string.isRequired,
 };
 
 export default ListItemLink;

@@ -20,7 +20,7 @@ const WeatherWidget = () => {
     return (
       <Card variant="outlined">
         <CardContent>
-          <ErrorIndicator error={error} />
+          <ErrorIndicator error="Failed to retrieve weather data." />
         </CardContent>
       </Card>
     );

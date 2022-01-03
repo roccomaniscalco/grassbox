@@ -7,12 +7,13 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography
+  Typography,
 } from "@mui/material";
+import { useWeatherContext } from "../../../contexts/WeatherContext";
+import useWeather from "../../../hooks/useWeather";
 import ScrollBox from "../../styled/ScrollBox";
 import Temp from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
-
 
 const formatDate = (date, timeZone) => {
   const formatter = new Intl.DateTimeFormat([], {
@@ -23,7 +24,10 @@ const formatDate = (date, timeZone) => {
   return formatter.format(date);
 };
 
-const DailyForecast = ({ weather }) => {
+const DailyForecast = () => {
+  const { locale } = useWeatherContext();
+  const { weather } = useWeather(locale?.lat, locale?.lon);
+
   if (!weather)
     return (
       <Stack justifyContent="space-between" height="210px" p={2}>

@@ -10,6 +10,7 @@ import {
   TableRow,
   Typography
 } from "@mui/material";
+import { shape, string } from "prop-types";
 import UserMap from "./UserMap";
 
 const UserCard = ({ user }) => {
@@ -22,7 +23,7 @@ const UserCard = ({ user }) => {
         subheader={user.email}
       />
       {/* geographic location */}
-        <UserMap city={user.location.city} />
+      <UserMap city={user.location.city} />
       {/* login credentials */}
       <CardContent>
         <TableContainer elevation={4}>
@@ -54,6 +55,26 @@ const UserCard = ({ user }) => {
       </CardContent>
     </Card>
   );
+};
+
+UserCard.propTypes = {
+  user: shape({
+    email: string.isRequired,
+    name: shape({
+      first: string.isRequired,
+      last: string.isRequired,
+    }),
+    picture: shape({
+      medium: string.isRequired,
+    }),
+    login: shape({
+      username: string.isRequired,
+      password: string.isRequired,
+    }),
+    location: shape({
+      city: string.isRequired,
+    }),
+  }),
 };
 
 export default UserCard;

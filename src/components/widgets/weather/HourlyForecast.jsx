@@ -1,12 +1,19 @@
 import {
-  Box, List,
-  ListItem, Paper, Skeleton, Stack, styled, Typography
+  Box,
+  List,
+  ListItem,
+  Paper,
+  Skeleton,
+  Stack,
+  styled,
+  Typography,
 } from "@mui/material";
+import { useWeatherContext } from "../../../contexts/WeatherContext";
+import useWeather from "../../../hooks/useWeather";
 import ScrollBox from "../../styled/ScrollBox";
 import Pop from "./Pop";
 import Temp from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
-
 
 const formatDate = (date, timeZone) => {
   const formatter = new Intl.DateTimeFormat([], {
@@ -27,7 +34,10 @@ const HourPaper = styled(Paper)(({ theme }) => ({
   width: "70px",
 }));
 
-const HourlyForecast = ({ weather }) => {
+const HourlyForecast = () => {
+  const { locale } = useWeatherContext();
+  const { weather } = useWeather(locale?.lat, locale?.lon);
+
   if (!weather)
     return (
       <Stack
@@ -37,15 +47,40 @@ const HourlyForecast = ({ weather }) => {
         spacing={1}
         p={2}
       >
-        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
-        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
-        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
-        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
-        <Skeleton animation="wave" variant="rectangular" width="100%" height="100%"/>
+        <Skeleton
+          animation="wave"
+          variant="rectangular"
+          width="100%"
+          height="100%"
+        />
+        <Skeleton
+          animation="wave"
+          variant="rectangular"
+          width="100%"
+          height="100%"
+        />
+        <Skeleton
+          animation="wave"
+          variant="rectangular"
+          width="100%"
+          height="100%"
+        />
+        <Skeleton
+          animation="wave"
+          variant="rectangular"
+          width="100%"
+          height="100%"
+        />
+        <Skeleton
+          animation="wave"
+          variant="rectangular"
+          width="100%"
+          height="100%"
+        />
       </Stack>
     );
 
-  return ( 
+  return (
     <ScrollBox p={2}>
       <List disablePadding sx={{ display: "flex", gap: 1 }}>
         {/* display forecast of next 24 hours */}

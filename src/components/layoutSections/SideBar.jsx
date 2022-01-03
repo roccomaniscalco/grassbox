@@ -2,9 +2,10 @@ import {
   CatchingPokemon,
   GitHub,
   Mail,
-  PersonRounded
+  PersonRounded,
 } from "@mui/icons-material";
 import { Box, Drawer, List, styled, useMediaQuery } from "@mui/material";
+import { bool, string } from "prop-types";
 import ListItemLink from "./ListItemLink";
 
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar);
@@ -45,6 +46,11 @@ const SideBar = ({ isOpen, width }) => {
       </List>
     </Drawer>
   );
+};
+
+SideBar.propTypes = {
+  isOpen: bool.isRequired,
+  width: string.isRequired,
 };
 
 export default SideBar;
