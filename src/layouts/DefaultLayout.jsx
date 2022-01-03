@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 
-import Header from "../components/layoutSections/TopNav";
+import Header from "../components/layoutSections/Header";
 import SideBar from "../components/layoutSections/SideBar";
 import MainContent from "../components/layoutSections/MainContent";
 
@@ -11,7 +11,7 @@ const DefaultLayout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
-    if (isSmall) setIsOpen(!isOpen);
+    if (isSmall) setIsOpen((previousIsOpen) => !previousIsOpen);
   };
 
   useEffect(() => {

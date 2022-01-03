@@ -4,7 +4,7 @@ import { WeatherProvider } from "../../contexts/WeatherContext";
 
 const weather = () => {
   return (
-    <Box width="420px">
+    <Box>
       <WeatherProvider>
         <WeatherWidget />
       </WeatherProvider>

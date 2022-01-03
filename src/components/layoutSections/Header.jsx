@@ -21,19 +21,21 @@ const Header = ({ toggleOpen }) => {
         position="fixed"
         elevation={0}
         sx={{
-          background: `${theme.palette.background.paper}99`,
+          background: `${theme.palette.background.default}99`,
           backdropFilter: "blur(20px)",
         }}
       >
         <Toolbar>
-          <IconButton
-            aria-label="open side navigation"
-            onClick={toggleOpen}
-            disabled={!isSmall}
-            sx={{ ml: "-2px", mr: 3 }}
-          >
-            <MenuRoundedIcon />
-          </IconButton>
+          {isSmall && (
+            <IconButton
+              aria-label="open side navigation"
+              onClick={toggleOpen}
+              disabled={!isSmall}
+              sx={{ ml: "-2px", mr: 3 }}
+            >
+              <MenuRoundedIcon />
+            </IconButton>
+          )}
           <Divider />
         </Toolbar>
         <Divider />

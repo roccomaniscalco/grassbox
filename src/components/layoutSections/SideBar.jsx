@@ -4,22 +4,13 @@ import {
   Mail,
   PersonRounded,
 } from "@mui/icons-material";
-import {
-  Drawer,
-  List,
-  Box,
-  styled,
-  useMediaQuery,
-  Typography,
-  Divider,
-} from "@mui/material";
+import { Drawer, List, Box, styled, useMediaQuery } from "@mui/material";
 
-import GrassboxIcon from "../../assets/GrassboxIcon.svg";
 import ListItemLink from "./ListItemLink";
 
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar);
 
-const SideBar = ({ isOpen, width, toggleOpen }) => {
+const SideBar = ({ isOpen, width }) => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
@@ -27,17 +18,9 @@ const SideBar = ({ isOpen, width, toggleOpen }) => {
       anchor="left"
       variant={isSmall ? "temporary" : "persistent"}
       open={isOpen}
-      onClose={() => toggleOpen()}
-      PaperProps={{ variant: "outlined" }}
     >
       {/* Header */}
-      <HeaderOffset display="flex" alignItems="center" paddingX={4}>
-        <GrassboxIcon height={20} width={20} />
-        <Box pl={3}>
-          <Typography variant={"h6"}>GRASSBOX</Typography>
-        </Box>
-      </HeaderOffset>
-      <Divider />
+      <HeaderOffset />
       {/* Content */}
       <List sx={{ width: width }}>
         <ListItemLink
