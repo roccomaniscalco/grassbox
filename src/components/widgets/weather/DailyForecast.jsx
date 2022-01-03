@@ -7,12 +7,12 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography,
+  Typography
 } from "@mui/material";
-
 import ScrollBox from "../../styled/ScrollBox";
 import Temp from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
+
 
 const formatDate = (date, timeZone) => {
   const formatter = new Intl.DateTimeFormat([], {

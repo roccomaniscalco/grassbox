@@ -1,14 +1,9 @@
 import { useTheme } from "@emotion/react";
-import {
-  Divider,
-  Box,
-  Toolbar,
-  AppBar,
-  styled,
-  IconButton,
-  useMediaQuery,
-} from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import {
+  AppBar, Box, Divider, IconButton, styled, Toolbar, useMediaQuery
+} from "@mui/material";
+
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar);
 
 const Header = ({ toggleOpen }) => {

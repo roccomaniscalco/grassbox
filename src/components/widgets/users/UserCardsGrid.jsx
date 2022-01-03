@@ -1,5 +1,4 @@
 import { Grid } from "@mui/material";
-
 import useRandomUsers from "../../../hooks/useRandomUsers";
 import ErrorIndicator from "../../common/ErrorIndicator";
 import LoadingIndicator from "../../common/LoadingIndicator";

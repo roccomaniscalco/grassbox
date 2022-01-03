@@ -2,10 +2,9 @@ import {
   CatchingPokemon,
   GitHub,
   Mail,
-  PersonRounded,
+  PersonRounded
 } from "@mui/icons-material";
-import { Drawer, List, Box, styled, useMediaQuery } from "@mui/material";
-
+import { Box, Drawer, List, styled, useMediaQuery } from "@mui/material";
 import ListItemLink from "./ListItemLink";
 
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar);

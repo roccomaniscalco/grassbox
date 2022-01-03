@@ -1,10 +1,10 @@
-import { Box, capitalize, Grid, Skeleton, Stack, Typography } from "@mui/material";
-import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
-import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
+import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import SpeedRoundedIcon from "@mui/icons-material/SpeedRounded";
-
+import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
+import { Box, Grid, Skeleton, Stack, Typography } from "@mui/material";
 import isWithinRange from "../../../utils/isWithinRange";
+
 
 const switchDirection = (deg) => {
   switch (true) {

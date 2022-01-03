@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
 import { Box, styled } from "@mui/material";
-
+import { useRef, useState } from "react";
 import WidgetPreferences from "./WidgetPreferences";
 
 const WidgetBox = styled(Box)({

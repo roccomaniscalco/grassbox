@@ -1,14 +1,12 @@
 import {
-  Box,
-  Paper,
-  Switch,
-  Typography,
-  ButtonBase,
+  Box, ButtonBase,
   FormControlLabel,
-  FormGroup,
+  FormGroup, Paper,
+  Switch,
+  Typography
 } from "@mui/material";
-
 import { useWeatherContext } from "../../../contexts/WeatherContext";
+
 
 const WeatherPreferences = () => {
   const {

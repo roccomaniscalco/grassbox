@@ -1,11 +1,10 @@
-import PropTypes from "prop-types";
-import Head from "next/head";
-import { ThemeProvider, CssBaseline } from "@mui/material";
 import { CacheProvider } from "@emotion/react";
-
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import Head from "next/head";
+import PropTypes from "prop-types";
+import DefaultLayout from "../layouts/DefaultLayout";
 import createEmotionCache from "../styles/createEmotionCache";
 import theme from "../styles/theme";
-import DefaultLayout from "../layouts/DefaultLayout";
 
 const clientSideEmotionCache = createEmotionCache();
 

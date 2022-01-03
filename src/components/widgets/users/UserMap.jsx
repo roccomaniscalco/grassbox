@@ -1,10 +1,9 @@
-import { Map, ZoomControl } from "pigeon-maps";
-import { Box, Paper, CardMedia, CardContent } from "@mui/material";
 import RoomRoundedIcon from "@mui/icons-material/RoomRounded";
-
+import { Box, CardContent, CardMedia, Paper } from "@mui/material";
+import { Map, ZoomControl } from "pigeon-maps";
 import useGeocoding from "../../../hooks/useGeocoding";
-import LoadingIndicator from "../../common/LoadingIndicator";
 import ErrorIndicator from "../../common/ErrorIndicator";
+import LoadingIndicator from "../../common/LoadingIndicator";
 
 const UserMap = ({ city }) => {
   const { location, error } = useGeocoding(city);

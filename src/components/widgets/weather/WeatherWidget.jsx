@@ -1,15 +1,15 @@
 import { Card, CardContent, Collapse, Divider } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
-
+import { useWeatherContext } from "../../../contexts/WeatherContext";
 import useWeather from "../../../hooks/useWeather";
 import ErrorIndicator from "../../common/ErrorIndicator";
 import WidgetContainer from "../../common/WidgetContainer";
-import LocaleHeader from "./LocaleHeader";
-import HourlyForecast from "./HourlyForecast";
-import DailyForecast from "./DailyForecast";
-import WeatherPreferences from "./WeatherPreferences";
-import { useWeatherContext } from "../../../contexts/WeatherContext";
 import CurrentDetails from "./CurrentDetails";
+import DailyForecast from "./DailyForecast";
+import HourlyForecast from "./HourlyForecast";
+import LocaleHeader from "./LocaleHeader";
+import WeatherPreferences from "./WeatherPreferences";
+
 
 const WeatherWidget = () => {
   const { showCurrentDetails, showHourlyForecast, showDailyForecast, locale } =

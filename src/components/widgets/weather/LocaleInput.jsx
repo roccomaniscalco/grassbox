@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { TextField, useTheme } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { TextField, useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useWeatherContext } from "../../../contexts/WeatherContext";
 import useGeocoding from "../../../hooks/useGeocoding";
 

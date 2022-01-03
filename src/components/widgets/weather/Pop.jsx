@@ -1,7 +1,7 @@
-import { Typography } from "@mui/material";
 import OpacityRoundedIcon from "@mui/icons-material/OpacityRounded";
-
+import { Typography } from "@mui/material";
 import toPercent from "../../../utils/toPercent";
+
 
 const Pop = ({ children }) => {
   return (

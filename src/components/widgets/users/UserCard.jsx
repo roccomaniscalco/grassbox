@@ -8,9 +8,8 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography,
+  Typography
 } from "@mui/material";
-
 import UserMap from "./UserMap";
 
 const UserCard = ({ user }) => {

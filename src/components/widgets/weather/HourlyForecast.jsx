@@ -1,18 +1,12 @@
 import {
-  Paper,
-  List,
-  ListItem,
-  Typography,
-  styled,
-  Box,
-  Stack,
-  Skeleton,
+  Box, List,
+  ListItem, Paper, Skeleton, Stack, styled, Typography
 } from "@mui/material";
-
 import ScrollBox from "../../styled/ScrollBox";
 import Pop from "./Pop";
 import Temp from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
+
 
 const formatDate = (date, timeZone) => {
   const formatter = new Intl.DateTimeFormat([], {

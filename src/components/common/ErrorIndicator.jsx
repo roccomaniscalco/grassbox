@@ -1,5 +1,5 @@
 import ReportProblemRoundedIcon from "@mui/icons-material/ReportProblemRounded";
-import { styled, Box, Slide, Typography } from "@mui/material";
+import { Box, Slide, styled, Typography } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
 
 const CenterChild = styled(Box)({
