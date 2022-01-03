@@ -43,7 +43,8 @@ const LocaleHeader = ({ weather }) => {
       <Box display="flex" alignItems="center">
         {weather ? (
           <WeatherIcon
-            iconCode={weather.current.weather[0].icon}
+            icon={weather.current.weather[0].icon}
+            alt={weather.current.weather[0].description}
             width="40px"
             height="40px"
           />

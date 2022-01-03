@@ -16,7 +16,7 @@ const LocaleInput = () => {
     if (!location?.name) return;
     setLocale(location);
     setValue(location.name);
-  }, [location]);
+  }, [location, setLocale]);
 
   const handleFocus = () => setValue("");
   const handleChange = (e) => setValue(e.target.value);

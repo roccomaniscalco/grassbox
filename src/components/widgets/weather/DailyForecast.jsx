@@ -55,7 +55,8 @@ const DailyForecast = ({ weather }) => {
                     maxWidth={"140px"}
                   >
                     <WeatherIcon
-                      iconCode={day.weather[0].icon}
+                      icon={day.weather[0].icon}
+                      alt={day.weather[0].description}
                       width="30px"
                       height="30px"
                     />

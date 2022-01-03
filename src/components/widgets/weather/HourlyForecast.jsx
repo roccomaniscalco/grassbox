@@ -67,7 +67,8 @@ const HourlyForecast = ({ weather }) => {
               <Box position="absolute" bottom={(theme) => theme.spacing(1)}>
                 {/* icon */}
                 <WeatherIcon
-                  iconCode={hour.weather[0].icon}
+                  icon={hour.weather[0].icon}
+                  alt={hour.weather[0].description}
                   width="40px"
                   height="40px"
                 />
