@@ -1,4 +1,5 @@
 import { useMediaQuery } from "@mui/material";
+import { node } from "prop-types";
 import { useEffect, useState } from "react";
 import Header from "../components/layoutSections/Header";
 import MainContent from "../components/layoutSections/MainContent";
@@ -27,6 +28,10 @@ const DefaultLayout = ({ children }) => {
       </MainContent>
     </>
   );
+};
+
+DefaultLayout.propTypes = {
+  children: node,
 };
 
 export default DefaultLayout;

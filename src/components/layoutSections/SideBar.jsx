@@ -3,6 +3,7 @@ import {
   GitHub,
   Mail,
   PersonRounded,
+  CloudRounded,
 } from "@mui/icons-material";
 import { Box, Drawer, List, styled, useMediaQuery } from "@mui/material";
 import { bool, string } from "prop-types";
@@ -22,7 +23,7 @@ const SideBar = ({ isOpen, width }) => {
       {/* Header */}
       <HeaderOffset />
       {/* Content */}
-      <List sx={{ width: width }}>
+      <List sx={{ width: width }} dense>
         <ListItemLink
           Icon={GitHub}
           text="Github"
@@ -42,6 +43,11 @@ const SideBar = ({ isOpen, width }) => {
           Icon={PersonRounded}
           text="Users"
           href="/experimental/users"
+        />
+        <ListItemLink
+          Icon={CloudRounded}
+          text="Weather"
+          href="/experimental/weather"
         />
       </List>
     </Drawer>

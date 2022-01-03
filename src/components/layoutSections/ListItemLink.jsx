@@ -1,27 +1,23 @@
 import {
-  Link,
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
-  styled
+  ListItemText
 } from "@mui/material";
+import Link from "next/link";
 import { elementType, string } from "prop-types";
-
-const ListItemLinkButton = styled(ListItemButton)({
-  name: "ListItemLinkButton",
-  borderRadius: 10,
-});
 
 const ListItemLink = ({ href, Icon, text }) => {
   return (
     <ListItem>
-      <ListItemLinkButton component={Link} href={href}>
-        <ListItemIcon>
-          <Icon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary={text} />
-      </ListItemLinkButton>
+      <Link href={href} passHref>
+        <ListItemButton component="a" sx={{ borderRadius: 2 }}>
+          <ListItemIcon>
+            <Icon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary={text} />
+        </ListItemButton>
+      </Link>
     </ListItem>
   );
 };
