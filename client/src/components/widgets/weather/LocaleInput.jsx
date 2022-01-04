@@ -48,7 +48,7 @@ const LocaleInput = () => {
         onFocus={handleFocus}
         onChange={(e) => handleChange(e)}
         onBlur={handleSubmit}
-        autoComplete='off'
+        autoComplete="off"
       />
     </form>
   )
