@@ -1,14 +1,10 @@
 import { useTheme } from "@emotion/react";
-import {
-  Divider,
-  Box,
-  Toolbar,
-  AppBar,
-  styled,
-  IconButton,
-  useMediaQuery,
-} from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import {
+  AppBar, Box, Divider, IconButton, styled, Toolbar, useMediaQuery
+} from "@mui/material";
+import { func } from "prop-types";
+
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar);
 
 const Header = ({ toggleOpen }) => {
@@ -21,19 +17,21 @@ const Header = ({ toggleOpen }) => {
         position="fixed"
         elevation={0}
         sx={{
-          background: `${theme.palette.background.paper}99`,
+          background: `${theme.palette.background.default}99`,
           backdropFilter: "blur(20px)",
         }}
       >
         <Toolbar>
-          <IconButton
-            aria-label="open side navigation"
-            onClick={toggleOpen}
-            disabled={!isSmall}
-            sx={{ ml: "-2px", mr: 3 }}
-          >
-            <MenuRoundedIcon />
-          </IconButton>
+          {isSmall && (
+            <IconButton
+              aria-label="open side navigation"
+              onClick={toggleOpen}
+              disabled={!isSmall}
+              sx={{ ml: "-2px", mr: 3 }}
+            >
+              <MenuRoundedIcon />
+            </IconButton>
+          )}
           <Divider />
         </Toolbar>
         <Divider />
@@ -42,5 +40,9 @@ const Header = ({ toggleOpen }) => {
     </>
   );
 };
+
+Header.propTypes = {
+  toggleOpen: func.isRequired
+}
 
 export default Header;

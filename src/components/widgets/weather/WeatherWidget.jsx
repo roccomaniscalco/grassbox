@@ -1,42 +1,53 @@
-import { useState } from "react";
-import { Card, Divider } from "@mui/material";
-
+import { Card, CardContent, Collapse, Divider } from "@mui/material";
+import { TransitionGroup } from "react-transition-group";
 import useWeather from "../../../hooks/useWeather";
 import ErrorIndicator from "../../common/ErrorIndicator";
-import LoadingIndicator from "../../common/LoadingIndicator";
-import useGeocoding from "../../../hooks/useGeocoding";
-import LocaleHeader from "./LocaleHeader";
-import HourlyForecast from "./HourlyForecast";
-import DailyForecast from "./DailyForecast";
 import WidgetContainer from "../../common/WidgetContainer";
+import { useWeatherContext } from "../../contexts/WeatherContext";
+import CurrentDetails from "./CurrentDetails";
+import DailyForecast from "./DailyForecast";
+import HourlyForecast from "./HourlyForecast";
+import LocaleHeader from "./LocaleHeader";
 import WeatherPreferences from "./WeatherPreferences";
 
+
 const WeatherWidget = () => {
-  const [city, setCity] = useState("belo horizonte");
+  const { showCurrentDetails, showHourlyForecast, showDailyForecast, locale } =
+    useWeatherContext();
+  const { weather, error } = useWeather(locale?.lat, locale?.lon);
 
-  const { location, error: locationError } = useGeocoding(city);
-  const { weather, error: weatherError } = useWeather(
-    location?.lat,
-    location?.lon
-  );
-
-  if (locationError || weatherError)
-    return <ErrorIndicator error={locationError || weatherError} />;
-  if (!location || !weather) return <LoadingIndicator />;
+  if (error)
+    return (
+      <Card variant="outlined">
+        <CardContent>
+          <ErrorIndicator error="Failed to retrieve weather data." />
+        </CardContent>
+      </Card>
+    );
 
   return (
     <WidgetContainer PreferencesPanel={WeatherPreferences}>
       <Card variant="outlined">
-        <LocaleHeader
-          city={location.name}
-          state={location.state}
-          country={location.country}
-          weather={weather}
-        />
-        <Divider />
-        <HourlyForecast weather={weather} />
-        <Divider />
-        <DailyForecast weather={weather} />
+        <LocaleHeader city={locale.name} weather={weather} />
+        <TransitionGroup>
+          {showCurrentDetails && (
+            <Collapse in>
+              <CurrentDetails weather={weather} />
+            </Collapse>
+          )}
+          {showHourlyForecast && (
+            <Collapse in>
+              <Divider />
+              <HourlyForecast weather={weather} />
+            </Collapse>
+          )}
+          {showDailyForecast && (
+            <Collapse in>
+              <Divider />
+              <DailyForecast weather={weather} />
+            </Collapse>
+          )}
+        </TransitionGroup>
       </Card>
     </WidgetContainer>
   );

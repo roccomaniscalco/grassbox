@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { styled, Fab, Zoom, useTheme, Popper, Grow, Box } from "@mui/material";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
+import { Box, Fab, Grow, Popper, styled, useTheme, Zoom } from "@mui/material";
+import { bool, elementType } from "prop-types";
+import { useEffect, useState } from "react";
 
 const OptionsFab = styled(Fab)(({ theme }) => ({
   position: "absolute",
@@ -48,6 +49,11 @@ const WidgetPreferences = ({ PreferencesPanel, showFab }) => {
       </Popper>
     </>
   );
+};
+
+WidgetPreferences.propTypes = {
+  PreferencesPanel: elementType.isRequired,
+  showFab: bool.isRequired,
 };
 
 export default WidgetPreferences;

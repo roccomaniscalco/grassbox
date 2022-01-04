@@ -1,5 +1,8 @@
-import { Box, CardContent, Typography } from "@mui/material";
-
+import { Box, CardContent, Skeleton, Typography } from "@mui/material";
+import { useWeatherContext } from "../../contexts/WeatherContext";
+import useWeather from "../../../hooks/useWeather";
+import LocaleInput from "./LocaleInput";
+import Temp from "./Temp";
 import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {
@@ -16,7 +19,10 @@ const formatDate = (date, timeZone) => {
   return formatter.format(date);
 };
 
-const LocaleHeader = ({ city, state, country, weather }) => {
+const LocaleHeader = () => {
+  const { locale } = useWeatherContext();
+  const { weather } = useWeather(locale?.lat, locale?.lon);
+
   return (
     <CardContent
       sx={{
@@ -30,20 +36,31 @@ const LocaleHeader = ({ city, state, country, weather }) => {
       {/* time and location */}
       <Box>
         <Typography variant="caption" color="success.main">
-          {formatDate(new Date(Date.now()), weather.timezone)}
+          {weather ? formatDate(Date.now(), weather.timezone) : <Skeleton />}
         </Typography>
-        <Typography variant="body1">
-          {city}, {state ? state : country}
-        </Typography>
+        <LocaleInput />
       </Box>
       {/* current temperature */}
       <Box display="flex" alignItems="center">
-        <WeatherIcon
-          iconCode={weather.current.weather[0].icon}
-          width="40px"
-          height="40px"
-        />
-        <Typography variant="h3">{weather.current.temp.toFixed()}°</Typography>
+        {weather ? (
+          <WeatherIcon
+            icon={weather.current.weather[0].icon}
+            alt={weather.current.weather[0].description}
+            width="40px"
+            height="40px"
+          />
+        ) : (
+          <Box p={1}>
+            <Skeleton variant="circular" width="40px" height="40px" />
+          </Box>
+        )}
+        <Typography variant="h4">
+          {weather ? (
+            <Temp>{weather.current.temp}</Temp>
+          ) : (
+            <Skeleton width="60px" />
+          )}
+        </Typography>
       </Box>
     </CardContent>
   );

@@ -3,23 +3,15 @@ import {
   GitHub,
   Mail,
   PersonRounded,
+  CloudRounded,
 } from "@mui/icons-material";
-import {
-  Drawer,
-  List,
-  Box,
-  styled,
-  useMediaQuery,
-  Typography,
-  Divider,
-} from "@mui/material";
-
-import GrassboxIcon from "../../assets/GrassboxIcon.svg";
+import { Box, Drawer, List, styled, useMediaQuery } from "@mui/material";
+import { bool, string } from "prop-types";
 import ListItemLink from "./ListItemLink";
 
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar);
 
-const SideBar = ({ isOpen, width, toggleOpen }) => {
+const SideBar = ({ isOpen, width }) => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
@@ -27,19 +19,11 @@ const SideBar = ({ isOpen, width, toggleOpen }) => {
       anchor="left"
       variant={isSmall ? "temporary" : "persistent"}
       open={isOpen}
-      onClose={() => toggleOpen()}
-      PaperProps={{ variant: "outlined" }}
     >
       {/* Header */}
-      <HeaderOffset display="flex" alignItems="center" paddingX={4}>
-        <GrassboxIcon height={20} width={20} />
-        <Box pl={3}>
-          <Typography variant={"h6"}>GRASSBOX</Typography>
-        </Box>
-      </HeaderOffset>
-      <Divider />
+      <HeaderOffset />
       {/* Content */}
-      <List sx={{ width: width }}>
+      <List sx={{ width: width }} dense>
         <ListItemLink
           Icon={GitHub}
           text="Github"
@@ -60,9 +44,19 @@ const SideBar = ({ isOpen, width, toggleOpen }) => {
           text="Users"
           href="/experimental/users"
         />
+        <ListItemLink
+          Icon={CloudRounded}
+          text="Weather"
+          href="/experimental/weather"
+        />
       </List>
     </Drawer>
   );
+};
+
+SideBar.propTypes = {
+  isOpen: bool.isRequired,
+  width: string.isRequired,
 };
 
 export default SideBar;

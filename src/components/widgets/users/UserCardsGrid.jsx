@@ -1,5 +1,4 @@
 import { Grid } from "@mui/material";
-
 import useRandomUsers from "../../../hooks/useRandomUsers";
 import ErrorIndicator from "../../common/ErrorIndicator";
 import LoadingIndicator from "../../common/LoadingIndicator";
@@ -8,7 +7,7 @@ import UserCard from "./UserCard";
 const UserCardsGrid = () => {
   const { users, error } = useRandomUsers(24);
 
-  if (error) return <ErrorIndicator error={error} />;
+  if (error) return <ErrorIndicator message="Failed to load user." />;
   if (!users) return <LoadingIndicator />;
 
   return (

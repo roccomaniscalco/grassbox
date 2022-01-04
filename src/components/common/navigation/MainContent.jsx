@@ -1,4 +1,5 @@
 import { Box, Container, styled } from "@mui/material";
+import { bool, node, string } from "prop-types";
 
 const MainContentContainer = styled("main", {
   shouldForwardProp: (prop) => prop !== "isOpen" && prop !== "sideBarWidth",
@@ -27,6 +28,12 @@ const MainContent = ({ isOpen, sideBarWidth, children }) => {
       </MainContentContainer>
     </Box>
   );
+};
+
+MainContent.propTypes = {
+  isOpen: bool.isRequired,
+  sideBarWidth: string.isRequired,
+  children: node,
 };
 
 export default MainContent;

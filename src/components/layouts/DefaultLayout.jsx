@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
-
-import Header from "../components/layoutSections/TopNav";
-import SideBar from "../components/layoutSections/SideBar";
-import MainContent from "../components/layoutSections/MainContent";
+import { node } from "prop-types";
+import { useEffect, useState } from "react";
+import Header from "../common/navigation/Header";
+import MainContent from "../common/navigation/MainContent";
+import SideBar from "../common/navigation/SideBar";
 
 const DefaultLayout = ({ children }) => {
   const sideBarWidth = "15rem";
@@ -11,7 +11,7 @@ const DefaultLayout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
-    if (isSmall) setIsOpen(!isOpen);
+    if (isSmall) setIsOpen((previousIsOpen) => !previousIsOpen);
   };
 
   useEffect(() => {
@@ -28,6 +28,10 @@ const DefaultLayout = ({ children }) => {
       </MainContent>
     </>
   );
+};
+
+DefaultLayout.propTypes = {
+  children: node,
 };
 
 export default DefaultLayout;

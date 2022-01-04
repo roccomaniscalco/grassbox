@@ -1,10 +1,10 @@
-import { Map, ZoomControl } from "pigeon-maps";
-import { Box, Paper, CardMedia, CardContent } from "@mui/material";
 import RoomRoundedIcon from "@mui/icons-material/RoomRounded";
-
+import { Box, CardContent, CardMedia, Paper } from "@mui/material";
+import { Map, ZoomControl } from "pigeon-maps";
+import { string } from "prop-types";
 import useGeocoding from "../../../hooks/useGeocoding";
-import LoadingIndicator from "../../common/LoadingIndicator";
 import ErrorIndicator from "../../common/ErrorIndicator";
+import LoadingIndicator from "../../common/LoadingIndicator";
 
 const UserMap = ({ city }) => {
   const { location, error } = useGeocoding(city);
@@ -12,7 +12,7 @@ const UserMap = ({ city }) => {
   if (error)
     return (
       <Box height="270px">
-        <ErrorIndicator error={error}/>
+        <ErrorIndicator error="Failed to load user location."/>
       </Box>
     );
 
@@ -56,5 +56,9 @@ const UserMap = ({ city }) => {
     </>
   );
 };
+
+UserMap.propTypes = {
+  city: string.isRequired
+}
 
 export default UserMap;
