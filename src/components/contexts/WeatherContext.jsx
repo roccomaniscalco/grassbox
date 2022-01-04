@@ -1,5 +1,6 @@
+import { node } from "prop-types";
 import { createContext, useContext, useState } from "react";
-import useToggle from "../hooks/useToggle";
+import useToggle from "../../hooks/useToggle";
 
 const WeatherContext = createContext();
 
@@ -33,6 +34,10 @@ const WeatherProvider = ({ children }) => {
     </WeatherContext.Provider>
   );
 };
+
+WeatherProvider.propTypes = {
+  children: node
+}
 
 const useWeatherContext = () => useContext(WeatherContext);
 

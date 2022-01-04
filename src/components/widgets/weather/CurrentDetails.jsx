@@ -3,9 +3,9 @@ import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import SpeedRoundedIcon from "@mui/icons-material/SpeedRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import { Box, Grid, Skeleton, Stack, Typography } from "@mui/material";
-import { useWeatherContext } from "../../../contexts/WeatherContext";
 import useWeather from "../../../hooks/useWeather";
 import isWithinRange from "../../../utils/isWithinRange";
+import { useWeatherContext } from "../../contexts/WeatherContext";
 
 const switchDirection = (deg) => {
   switch (true) {

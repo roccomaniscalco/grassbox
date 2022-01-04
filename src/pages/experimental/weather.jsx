@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
+import { WeatherProvider } from "../../components/contexts/WeatherContext";
 import WeatherWidget from "../../components/widgets/weather/WeatherWidget";
-import { WeatherProvider } from "../../contexts/WeatherContext";
 
 const weather = () => {
   return (

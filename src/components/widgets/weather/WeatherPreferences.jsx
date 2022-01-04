@@ -5,7 +5,7 @@ import {
   Switch,
   Typography
 } from "@mui/material";
-import { useWeatherContext } from "../../../contexts/WeatherContext";
+import { useWeatherContext } from "../../contexts/WeatherContext";
 
 
 const WeatherPreferences = () => {

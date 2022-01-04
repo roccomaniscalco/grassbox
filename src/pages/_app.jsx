@@ -2,7 +2,7 @@ import { CacheProvider } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import DefaultLayout from "../layouts/DefaultLayout";
+import DefaultLayout from "../components/layouts/DefaultLayout";
 import createEmotionCache from "../styles/createEmotionCache";
 import theme from "../styles/theme";
 

@@ -9,10 +9,10 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { useWeatherContext } from "../../../contexts/WeatherContext";
+import { useWeatherContext } from "../../contexts/WeatherContext";
 import useWeather from "../../../hooks/useWeather";
 import ScrollBox from "../../styled/ScrollBox";
-import Temp from "./Temperature";
+import Temp from "./Temp";
 import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {
@@ -66,12 +66,12 @@ const DailyForecast = () => {
                     />
                     <Typography>
                       <strong>
-                        <Temp>{day.temp.max.toFixed()}</Temp>
+                        <Temp>{day.temp.max}</Temp>
                       </strong>
                     </Typography>
                     <Typography color="textSecondary"> / </Typography>
                     <Typography color="textSecondary">
-                      <Temp>{day.temp.min.toFixed()}</Temp>
+                      <Temp>{day.temp.min}</Temp>
                     </Typography>
                   </Box>
                 </TableCell>

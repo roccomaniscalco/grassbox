@@ -1,8 +1,8 @@
 import { Box, CardContent, Skeleton, Typography } from "@mui/material";
-import { useWeatherContext } from "../../../contexts/WeatherContext";
+import { useWeatherContext } from "../../contexts/WeatherContext";
 import useWeather from "../../../hooks/useWeather";
 import LocaleInput from "./LocaleInput";
-import Temp from "./Temperature";
+import Temp from "./Temp";
 import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {

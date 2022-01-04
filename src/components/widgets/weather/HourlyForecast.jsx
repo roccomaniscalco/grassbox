@@ -8,11 +8,11 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import { useWeatherContext } from "../../../contexts/WeatherContext";
+import { useWeatherContext } from "../../contexts/WeatherContext";
 import useWeather from "../../../hooks/useWeather";
 import ScrollBox from "../../styled/ScrollBox";
 import Pop from "./Pop";
-import Temp from "./Temperature";
+import Temp from "./Temp";
 import WeatherIcon from "./WeatherIcon";
 
 const formatDate = (date, timeZone) => {
@@ -111,7 +111,7 @@ const HourlyForecast = () => {
                 {/* temperature */}
                 <Typography variant="body1" textAlign="center">
                   <strong>
-                    <Temp>{hour.temp.toFixed()}</Temp>
+                    <Temp>{hour.temp}</Temp>
                   </strong>
                 </Typography>
               </Box>
