@@ -1,9 +1,9 @@
 import { Box, CardContent, Skeleton, Typography } from "@mui/material"
 import { useWeatherContext } from "../../contexts/WeatherContext"
-import useWeather from "../../../hooks/useWeather"
 import LocaleInput from "./LocaleInput"
 import Temp from "./Temp"
 import WeatherIcon from "./WeatherIcon"
+import api from "../../../hooks/api"
 
 const formatDate = (date, timeZone) => {
   const options = {
@@ -21,7 +21,7 @@ const formatDate = (date, timeZone) => {
 
 const LocaleHeader = () => {
   const { locale } = useWeatherContext()
-  const { weather } = useWeather(locale?.lat, locale?.lon)
+  const { weather } = api.useWeather(locale?.lat, locale?.lon)
 
   return (
     <CardContent

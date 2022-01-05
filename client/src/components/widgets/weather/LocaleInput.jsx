@@ -1,7 +1,7 @@
 import LocationOnIcon from "@mui/icons-material/LocationOn"
 import { TextField, useTheme } from "@mui/material"
 import { useEffect, useState } from "react"
-import useGeocoding from "../../../hooks/useGeocoding"
+import api from "../../../hooks/api"
 import { useWeatherContext } from "../../contexts/WeatherContext"
 
 const LocaleInput = () => {
@@ -10,7 +10,7 @@ const LocaleInput = () => {
   const { locale, setLocale } = useWeatherContext()
   const [value, setValue] = useState(locale.name)
   const [search, setSearch] = useState(locale.name)
-  const { location, error } = useGeocoding(search)
+  const { location, error } = api.useGeocoding(search)
 
   useEffect(() => {
     if (!location?.name) return

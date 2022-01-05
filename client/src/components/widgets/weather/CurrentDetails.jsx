@@ -3,7 +3,7 @@ import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded"
 import SpeedRoundedIcon from "@mui/icons-material/SpeedRounded"
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded"
 import { Box, Grid, Skeleton, Stack, Typography } from "@mui/material"
-import useWeather from "../../../hooks/useWeather"
+import api from "../../../hooks/api"
 import isWithinRange from "../../../utils/isWithinRange"
 import { useWeatherContext } from "../../contexts/WeatherContext"
 
@@ -56,7 +56,7 @@ const formatDate = (date, timeZone) => {
 
 const CurrentDetails = () => {
   const { locale } = useWeatherContext()
-  const { weather } = useWeather(locale?.lat, locale?.lon)
+  const { weather } = api.useWeather(locale?.lat, locale?.lon)
 
   if (!weather)
     return (

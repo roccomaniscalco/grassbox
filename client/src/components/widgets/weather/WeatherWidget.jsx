@@ -1,6 +1,6 @@
 import { Card, CardContent, Collapse, Divider } from "@mui/material"
 import { TransitionGroup } from "react-transition-group"
-import useWeather from "../../../hooks/useWeather"
+import api from "../../../hooks/api"
 import ErrorIndicator from "../../common/ErrorIndicator"
 import WidgetContainer from "../../common/WidgetContainer"
 import { useWeatherContext } from "../../contexts/WeatherContext"
@@ -13,7 +13,7 @@ import WeatherPreferences from "./WeatherPreferences"
 const WeatherWidget = () => {
   const { showCurrentDetails, showHourlyForecast, showDailyForecast, locale } =
     useWeatherContext()
-  const { weather, error } = useWeather(locale?.lat, locale?.lon)
+  const { weather, error } = api.useWeather(locale?.lat, locale?.lon)
 
   if (error)
     return (

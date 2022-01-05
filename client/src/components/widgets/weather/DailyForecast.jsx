@@ -7,10 +7,10 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography,
+  Typography
 } from "@mui/material"
+import api from "../../../hooks/api"
 import { useWeatherContext } from "../../contexts/WeatherContext"
-import useWeather from "../../../hooks/useWeather"
 import ScrollBox from "../../styled/ScrollBox"
 import Temp from "./Temp"
 import WeatherIcon from "./WeatherIcon"
@@ -26,7 +26,7 @@ const formatDate = (date, timeZone) => {
 
 const DailyForecast = () => {
   const { locale } = useWeatherContext()
-  const { weather } = useWeather(locale?.lat, locale?.lon)
+  const { weather } = api.useWeather(locale?.lat, locale?.lon)
 
   if (!weather)
     return (

@@ -6,10 +6,10 @@ import {
   Skeleton,
   Stack,
   styled,
-  Typography,
+  Typography
 } from "@mui/material"
+import api from "../../../hooks/api"
 import { useWeatherContext } from "../../contexts/WeatherContext"
-import useWeather from "../../../hooks/useWeather"
 import ScrollBox from "../../styled/ScrollBox"
 import Pop from "./Pop"
 import Temp from "./Temp"
@@ -36,7 +36,7 @@ const HourPaper = styled(Paper)(({ theme }) => ({
 
 const HourlyForecast = () => {
   const { locale } = useWeatherContext()
-  const { weather } = useWeather(locale?.lat, locale?.lon)
+  const { weather } = api.useWeather(locale?.lat, locale?.lon)
 
   if (!weather)
     return (

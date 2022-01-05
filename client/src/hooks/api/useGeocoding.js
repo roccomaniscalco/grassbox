@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import useSWRImmutable from "swr/immutable"
-import fetcher from "../utils/fetcher"
+import fetcher from "../../utils/fetcher"
 
 const useGeocoding = (city) => {
   const { data, error, isValidating, mutate } = useSWRImmutable(

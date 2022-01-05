@@ -2,12 +2,12 @@ import RoomRoundedIcon from "@mui/icons-material/RoomRounded"
 import { Box, CardContent, CardMedia, Paper } from "@mui/material"
 import { Map, ZoomControl } from "pigeon-maps"
 import { string } from "prop-types"
-import useGeocoding from "../../../hooks/useGeocoding"
+import api from "../../../hooks/api"
 import ErrorIndicator from "../../common/ErrorIndicator"
 import LoadingIndicator from "../../common/LoadingIndicator"
 
 const UserMap = ({ city }) => {
-  const { location, error } = useGeocoding(city)
+  const { location, error } = api.useGeocoding(city)
 
   if (error)
     return (

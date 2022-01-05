@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable"
-import fetcher from "../utils/fetcher"
+import fetcher from "../../utils/fetcher"
 
 const useRandomUsers = (userCount) => {
   const { data, error } = useSWRImmutable(
