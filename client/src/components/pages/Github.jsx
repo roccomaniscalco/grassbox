@@ -1,12 +1,20 @@
 import api from "../../hooks/api"
 import ErrorIndicator from "../common/ErrorIndicator"
+import LoadingIndicator from "../common/LoadingIndicator"
+import HeatMap from "../widgets/github/HeatMap"
 
 const Github = () => {
-  const { activity, error } = api.useGithubActivity("roccomaniscalco", 2020)
+  const { activity, error } = api.useGithubActivity("roccomaniscalco", 2021)
+
+  if (activity) console.log(activity)
 
   if (error) return <ErrorIndicator />
-  if (activity) return <div>{JSON.stringify(activity, null, 20)}</div>
-  return <div>loading...</div>
+  if (activity) return <HeatMap />
+  return (
+    <div>
+      <LoadingIndicator />
+    </div>
+  )
 }
 
 export default Github
