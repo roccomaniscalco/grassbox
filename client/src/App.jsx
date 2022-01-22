@@ -8,11 +8,13 @@ import Weather from "./components/pages/weather"
 function App() {
   return (
     <Routes>
-      <Route index element={<Index />} />
-      <Route path="/experimental" element={<DefaultLayout />}>
-        <Route path="weather" element={<Weather />} />
-        <Route path="users" element={<Users />} />
-        <Route path="github" element={<Github />} />
+      <Route element={<DefaultLayout />}>
+        <Route path="/" element={<Index />} />
+        <Route path="/experimental">
+          <Route path="weather" element={<Weather />} />
+          <Route path="users" element={<Users />} />
+          <Route path="github" element={<Github />} />
+        </Route>
       </Route>
     </Routes>
   )

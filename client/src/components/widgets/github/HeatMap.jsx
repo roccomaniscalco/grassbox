@@ -5,20 +5,21 @@ import { array } from "prop-types"
 const HeatMap = ({ data }) => {
   const theme = useTheme()
 
+  const colors = ["#41ab5d", "#238b45", "#006d2c", "#00441b"]
+
   return (
     <TimeRange
       data={data}
-      minValue={1}
       from={data[0].day}
       to={data[data.length - 1].day}
-      margin={{ top: 40, right: 10, bottom: 10, left: 10 }}
-      dayRadius={3}
-      daySpacing={3}
+      margin={{ top: 40, right: 15, bottom: 20, left: 20 }}
+      dayRadius={2}
+      daySpacing={4}
       dayBorderWidth={0}
       emptyColor={theme.palette.divider}
-      dayBorderColor={theme.palette.background.default}
-      height={400}
-      width={1100}
+      colors={colors.reverse()}
+      height={170}
+      width={920}
       theme={{
         background: theme.palette.background.default,
         textColor: theme.palette.text.secondary,
