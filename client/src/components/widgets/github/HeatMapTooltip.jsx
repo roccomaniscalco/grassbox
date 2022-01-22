@@ -13,8 +13,6 @@ const formatDate = (date) => {
 }
 
 const HeatMapTooltip = ({ value, date }) => {
-  console.log(date)
-
   return (
     <Paper variant="outlined">
       <Box sx={{ direction: "ltr" }} p={1}>

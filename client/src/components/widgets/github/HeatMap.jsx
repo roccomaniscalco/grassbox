@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react"
-import { Box } from "@mui/material"
+import { Box, Skeleton } from "@mui/material"
 import { TimeRange } from "@nivo/calendar"
 import { array } from "prop-types"
 import ScrollBox from "../../styled/ScrollBox"
@@ -9,6 +9,19 @@ import HeatMapTooltip from "./HeatMapTooltip"
 const HeatMap = ({ data }) => {
   const theme = useTheme()
   const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]
+
+  if (!data)
+    return (
+      <Box display="flex">
+        <HeatMapDayAxis />
+        <Skeleton
+          variant="rectangular"
+          height={135}
+          width="100%"
+          sx={{ margin: 2 }}
+        />
+      </Box>
+    )
 
   return (
     <Box display="flex">
@@ -22,7 +35,7 @@ const HeatMap = ({ data }) => {
           dayRadius={2}
           daySpacing={4}
           dayBorderWidth={0}
-          emptyColor={theme.palette.divider}
+          emptyColor={theme.palette.action.hover}
           colors={colors}
           height={160}
           width={820}

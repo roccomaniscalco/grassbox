@@ -6,7 +6,7 @@ import {
   Skeleton,
   Stack,
   styled,
-  Typography
+  Typography,
 } from "@mui/material"
 import api from "../../../hooks/api"
 import { useWeatherContext } from "../../contexts/WeatherContext"
@@ -47,36 +47,11 @@ const HourlyForecast = () => {
         spacing={1}
         p={2}
       >
-        <Skeleton
-          animation="wave"
-          variant="rectangular"
-          width="100%"
-          height="100%"
-        />
-        <Skeleton
-          animation="wave"
-          variant="rectangular"
-          width="100%"
-          height="100%"
-        />
-        <Skeleton
-          animation="wave"
-          variant="rectangular"
-          width="100%"
-          height="100%"
-        />
-        <Skeleton
-          animation="wave"
-          variant="rectangular"
-          width="100%"
-          height="100%"
-        />
-        <Skeleton
-          animation="wave"
-          variant="rectangular"
-          width="100%"
-          height="100%"
-        />
+        <Skeleton variant="rectangular" width="100%" height="100%" />
+        <Skeleton variant="rectangular" width="100%" height="100%" />
+        <Skeleton variant="rectangular" width="100%" height="100%" />
+        <Skeleton variant="rectangular" width="100%" height="100%" />
+        <Skeleton variant="rectangular" width="100%" height="100%" />
       </Stack>
     )
 

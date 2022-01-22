@@ -7,7 +7,7 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography
+  Typography,
 } from "@mui/material"
 import api from "../../../hooks/api"
 import { useWeatherContext } from "../../contexts/WeatherContext"
@@ -31,11 +31,11 @@ const DailyForecast = () => {
   if (!weather)
     return (
       <Stack justifyContent="space-between" height="210px" p={2}>
-        <Skeleton animation="wave" variant="text" />
-        <Skeleton animation="wave" variant="text" />
-        <Skeleton animation="wave" variant="text" />
-        <Skeleton animation="wave" variant="text" />
-        <Skeleton animation="wave" variant="text" />
+        <Skeleton variant="text" />
+        <Skeleton variant="text" />
+        <Skeleton variant="text" />
+        <Skeleton variant="text" />
+        <Skeleton variant="text" />
       </Stack>
     )
 
