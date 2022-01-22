@@ -1,9 +1,8 @@
 import {
-  CatchingPokemon,
-  GitHub,
-  Mail,
-  PersonRounded,
   CloudRounded,
+  GitHub,
+  HomeRounded,
+  PersonRounded,
 } from "@mui/icons-material"
 import { Box, Drawer, List, styled, useMediaQuery } from "@mui/material"
 import { bool, string } from "prop-types"
@@ -24,21 +23,7 @@ const SideBar = ({ isOpen, width }) => {
       <HeaderOffset />
       {/* Content */}
       <List sx={{ width: width }} dense>
-        <ListItemLink
-          Icon={GitHub}
-          text="Github"
-          href="https://github.com/roccomaniscalco"
-        />
-        <ListItemLink
-          Icon={Mail}
-          text="Inbox"
-          href="https://outlook.office365.com/mail/inbox"
-        />
-        <ListItemLink
-          Icon={CatchingPokemon}
-          text="Pokédex"
-          href="https://pokemondb.net/pokedex/national"
-        />
+        <ListItemLink Icon={HomeRounded} text="Dashboard" href="/" />
         <ListItemLink
           Icon={PersonRounded}
           text="Users"
@@ -49,6 +34,7 @@ const SideBar = ({ isOpen, width }) => {
           text="Weather"
           href="/experimental/weather"
         />
+        <ListItemLink Icon={GitHub} text="Github" href="/experimental/github" />
       </List>
     </Drawer>
   )

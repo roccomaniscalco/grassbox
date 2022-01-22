@@ -5,7 +5,7 @@ import WeatherWidget from "../widgets/weather/WeatherWidget"
 
 const Index = () => {
   return (
-    <Grid container spacing={3} width={"100%"}>
+    <Grid container spacing={3} justifyContent="center">
       <Grid item xs={12} lg={7}>
         <GithubActivityWidget />
       </Grid>

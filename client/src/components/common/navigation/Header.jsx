@@ -22,8 +22,8 @@ const Header = ({ toggleOpen }) => {
       <AppBar
         position="fixed"
         elevation={0}
-        sx={{
-          background: `${theme.palette.background.default}99`,
+        style={{
+          background: theme.palette.background.default,
           backdropFilter: "blur(20px)",
         }}
       >

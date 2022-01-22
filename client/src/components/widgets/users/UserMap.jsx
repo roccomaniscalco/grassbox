@@ -12,7 +12,7 @@ const UserMap = ({ city }) => {
   if (error)
     return (
       <Box height="270px">
-        <ErrorIndicator error="Failed to load user location." />
+        <ErrorIndicator message="Failed to load user location" />
       </Box>
     )
 

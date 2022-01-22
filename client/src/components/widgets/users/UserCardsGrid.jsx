@@ -7,7 +7,7 @@ import UserCard from "./UserCard"
 const UserCardsGrid = () => {
   const { users, error } = api.useRandomUsers(24)
 
-  if (error) return <ErrorIndicator message="Failed to load user." />
+  if (error) return <ErrorIndicator message="Failed to load user" />
   if (!users) return <LoadingIndicator />
 
   return (
