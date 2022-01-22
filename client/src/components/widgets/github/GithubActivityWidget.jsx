@@ -1,4 +1,4 @@
-import { Box, Card, Typography } from "@mui/material"
+import { Box, Card, Divider, Typography } from "@mui/material"
 import api from "../../../hooks/api"
 import ErrorIndicator from "../../common/ErrorIndicator"
 import LoadingIndicator from "../../common/LoadingIndicator"
@@ -8,21 +8,22 @@ import HeatMap from "./HeatMap"
 const GithubActivityWidget = () => {
   const { activity, error } = api.useGithubActivity("roccomaniscalco", 2021)
 
-  if (error) return <ErrorIndicator message="Failed to load Github contributions"/>
+  if (error)
+    return <ErrorIndicator message="Failed to load Github contributions" />
   if (!activity) return <LoadingIndicator />
 
   console.log(activity)
 
   return (
-    <Box maxWidth={920} width="100%">
+    <Box>
       <WidgetContainer>
         <Card variant="outlined">
-          <Typography variant="body1">{activity.username}</Typography>
-          <Box position="relative" height={170}>
-            <Box position="absolute" right={0}>
-              <HeatMap data={activity.contributions} />
-            </Box>
+          <Box p={2}>
+            <Typography variant="body1">{activity.username}</Typography>
           </Box>
+          <Divider />
+
+          <HeatMap data={activity.contributions} />
         </Card>
       </WidgetContainer>
     </Box>

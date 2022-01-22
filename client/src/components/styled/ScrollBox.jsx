@@ -1,6 +1,10 @@
 import { Box, styled } from "@mui/material"
 
-const ScrollBox = styled(Box)({
+const ScrollBox = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "direction",
+})(({ direction }) => ({
+  direction: direction ? direction : "ltr",
+  position: "relative",
   overflow: "auto",
   scrollbarColor: "transparent transparent",
   msOverflowStyle: "none",
@@ -10,6 +14,6 @@ const ScrollBox = styled(Box)({
   "::-moz-scrollbar": {
     display: "none",
   },
-})
+}))
 
 export default ScrollBox
