@@ -3,7 +3,7 @@ import { Box } from "@mui/material"
 import { TimeRange } from "@nivo/calendar"
 import { array } from "prop-types"
 import ScrollBox from "../../styled/ScrollBox"
-import HeatMapDaySideBar from "./HeatMapDaySideBar"
+import HeatMapDayAxis from "./HeatMapDayAxis"
 
 const HeatMap = ({ data }) => {
   const theme = useTheme()
@@ -11,8 +11,8 @@ const HeatMap = ({ data }) => {
 
   return (
     <Box display="flex">
-      <HeatMapDaySideBar />
-      <ScrollBox direction={"rtl"}>
+      <HeatMapDayAxis />
+      <ScrollBox direction="rtl">
         <TimeRange
           data={data}
           from={data[0].day}
