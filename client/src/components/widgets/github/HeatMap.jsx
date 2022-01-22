@@ -4,6 +4,7 @@ import { TimeRange } from "@nivo/calendar"
 import { array } from "prop-types"
 import ScrollBox from "../../styled/ScrollBox"
 import HeatMapDayAxis from "./HeatMapDayAxis"
+import HeatMapTooltip from "./HeatMapTooltip"
 
 const HeatMap = ({ data }) => {
   const theme = useTheme()
@@ -27,6 +28,9 @@ const HeatMap = ({ data }) => {
           width={820}
           weekdayTicks={[]}
           weekdayLegendOffset={0}
+          tooltip={({ value, day, date }) => (
+            <HeatMapTooltip value={value} day={day} date={date} />
+          )}
           theme={{
             background: theme.palette.background.default,
             textColor: theme.palette.text.secondary,
