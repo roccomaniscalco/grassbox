@@ -1,4 +1,3 @@
-import { Box } from "@mui/system"
 import api from "../../hooks/api"
 import ErrorIndicator from "../common/ErrorIndicator"
 import LoadingIndicator from "../common/LoadingIndicator"
@@ -11,11 +10,7 @@ const Github = () => {
 
   if (error) return <ErrorIndicator />
   if (!activity) return <LoadingIndicator />
-  return (
-    <Box height="300px">
-      <HeatMap />
-    </Box>
-  )
+  return <HeatMap data={activity.contributions} />
 }
 
 export default Github
