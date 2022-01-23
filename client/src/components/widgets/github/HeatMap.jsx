@@ -3,6 +3,7 @@ import { Box, Skeleton } from "@mui/material"
 import { TimeRange } from "@nivo/calendar"
 import { array } from "prop-types"
 import api from "../../../hooks/api"
+import ErrorIndicator from "../../common/ErrorIndicator"
 import { useGithubContext } from "../../contexts/GithubContext"
 import ScrollBox from "../../styled/ScrollBox"
 import HeatMapDayAxis from "./HeatMapDayAxis"
@@ -13,7 +14,14 @@ const HeatMap = () => {
   const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]
 
   const { username } = useGithubContext()
-  const { activity } = api.useGithubActivity(username)
+  const { activity, error } = api.useGithubActivity(username)
+
+  if (error)
+    return (
+      <Box height={135} m={2}>
+        <ErrorIndicator message="Failed to load Github contributions" />
+      </Box>
+    )
 
   if (!activity)
     return (
