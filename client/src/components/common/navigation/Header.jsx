@@ -1,21 +1,25 @@
 import { useTheme } from "@emotion/react"
+import { DarkModeRounded, LightModeRounded } from "@mui/icons-material"
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded"
 import {
   AppBar,
   Box,
   Divider,
   IconButton,
+  Stack,
   styled,
   Toolbar,
   useMediaQuery,
 } from "@mui/material"
 import { func } from "prop-types"
+import { useColorMode } from "../../contexts/ColorModeContext"
 
 const HeaderOffset = styled(Box)(({ theme }) => theme.mixins.toolbar)
 
 const Header = ({ toggleOpen }) => {
   const theme = useTheme()
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down("md"))
+  const { mode, toggleColorMode } = useColorMode()
 
   return (
     <>
@@ -32,12 +36,19 @@ const Header = ({ toggleOpen }) => {
             <IconButton
               aria-label="open side navigation"
               onClick={toggleOpen}
-              disabled={!isSmall}
               sx={{ ml: "-2px", mr: 3 }}
             >
               <MenuRoundedIcon />
             </IconButton>
           )}
+          <Stack flexDirection="row" justifyContent="end" width="100%">
+            <IconButton
+              aria-label="toggle between color mode"
+              onClick={toggleColorMode}
+            >
+              {mode === "dark" ? <DarkModeRounded /> : <LightModeRounded />}
+            </IconButton>
+          </Stack>
           <Divider />
         </Toolbar>
         <Divider />
