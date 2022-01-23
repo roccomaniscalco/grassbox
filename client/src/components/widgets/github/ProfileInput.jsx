@@ -7,7 +7,7 @@ import { useGithubContext } from "../../contexts/GithubContext"
 const ProfileInput = () => {
   const theme = useTheme()
 
-  const { username, setUsername, } = useGithubContext()
+  const { username, setUsername } = useGithubContext()
   const [value, setValue] = useState(username)
   const [search, setSearch] = useState(username)
   const { activity, error } = api.useGithubActivity(search)
@@ -46,7 +46,6 @@ const ProfileInput = () => {
         onChange={(e) => handleChange(e)}
         onBlur={handleSubmit}
         autoComplete="off"
-        
       />
     </form>
   )

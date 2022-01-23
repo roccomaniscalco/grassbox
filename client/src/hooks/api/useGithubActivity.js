@@ -18,22 +18,39 @@ const getDaysOfYear = (year) => {
 
 const formatContributions = (contributions, year) => {
   const daysOfYear = getDaysOfYear(year)
+  let totalContributions = 0
 
   const formattedContributions = contributions.flatMap((week) =>
-    week.days.map((day) => ({
-      value: day.count,
-      day: daysOfYear.shift(),
-    }))
+    week.days.map((day) => {
+      totalContributions += day.count
+      return {
+        value: day.count,
+        day: daysOfYear.shift(),
+      }
+    })
   )
 
-  return formattedContributions.filter((contribution) => contribution.value > 0)
+  const filteredContributions = formattedContributions.filter(
+    (contribution) => contribution.value > 0
+  )
+
+  return {
+    totalContributions,
+    contributions: filteredContributions,
+  }
 }
 
 const fetchGithubActivity = async (url) => {
   const res = await fetcher(url)
+  const { totalContributions, contributions } = formatContributions(
+    res.contributions,
+    res.year
+  )
+
   return {
     ...res,
-    contributions: formatContributions(res.contributions, res.year),
+    contributions,
+    totalContributions,
   }
 }
 
@@ -43,10 +60,7 @@ const useGithubActivity = (username) => {
     fetchGithubActivity
   )
 
-  return {
-    activity: data,
-    error,
-  }
+  return { activity: data, error }
 }
 
 export default useGithubActivity
