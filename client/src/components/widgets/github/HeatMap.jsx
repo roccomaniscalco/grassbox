@@ -43,7 +43,7 @@ const HeatMap = () => {
         <TimeRange
           data={activity.contributions}
           from={`${activity.year}-01-01`}
-          to={`${activity.year + 1}-01-01`}
+          to={`${activity.year}-12-31`}
           margin={{ top: 40, right: 10, bottom: 10, left: 10 }}
           dayRadius={2}
           daySpacing={4}

@@ -35,7 +35,7 @@ const ProfileInput = () => {
         error={error ? true : false}
         value={value}
         variant="standard"
-        placeholder="Search for Github username..."
+        placeholder="Search for username..."
         InputProps={{
           disableUnderline: error ? false : true,
           startAdornment: (
