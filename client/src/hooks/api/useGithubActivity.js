@@ -1,4 +1,4 @@
-import useSWRImmutable from "swr/immutable"
+import useSWR from "swr"
 import fetcher from "../../utils/fetcher"
 
 const getDaysOfYear = (year) => {
@@ -29,17 +29,22 @@ const formatContributions = (contributions, year) => {
   return formattedContributions.filter((contribution) => contribution.value > 0)
 }
 
-const useGithubActivity = (username, year) => {
-  const { data, error } = useSWRImmutable(
-    `/api/github/activity/${username}/${year}`,
-    fetcher
+const fetchGithubActivity = async (url) => {
+  const res = await fetcher(url)
+  return {
+    ...res,
+    contributions: formatContributions(res.contributions, res.year),
+  }
+}
+
+const useGithubActivity = (username) => {
+  const { data, error } = useSWR(
+    `/api/github/activity/${username}/${2021}`,
+    fetchGithubActivity
   )
 
   return {
-    activity: data && {
-      ...data,
-      contributions: formatContributions(data.contributions, data.year),
-    },
+    activity: data,
     error,
   }
 }

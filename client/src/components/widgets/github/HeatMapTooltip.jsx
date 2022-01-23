@@ -1,5 +1,5 @@
 import { Box, Paper, Typography } from "@mui/material"
-import { number, object } from "prop-types"
+import { object, string } from "prop-types"
 
 const formatDate = (date) => {
   const options = {
@@ -25,7 +25,7 @@ const HeatMapTooltip = ({ value, date }) => {
 }
 
 HeatMapTooltip.propTypes = {
-  value: number,
+  value: string,
   date: object,
 }
 
