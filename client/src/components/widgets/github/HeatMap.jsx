@@ -50,8 +50,8 @@ const HeatMap = () => {
           dayBorderWidth={0}
           emptyColor={theme.palette.action.hover}
           colors={colors}
-          height={160}
-          width={820}
+          height={169}
+          width={890}
           weekdayTicks={[]}
           weekdayLegendOffset={0}
           tooltip={({ value, day, date }) => (

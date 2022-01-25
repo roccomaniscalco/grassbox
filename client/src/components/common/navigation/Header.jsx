@@ -46,7 +46,7 @@ const Header = ({ toggleOpen }) => {
               aria-label="toggle between color mode"
               onClick={toggleColorMode}
             >
-              {mode === "dark" ? <DarkModeRounded /> : <LightModeRounded />}
+              {mode === "dark" ? <LightModeRounded /> : <DarkModeRounded />}
             </IconButton>
           </Stack>
           <Divider />
