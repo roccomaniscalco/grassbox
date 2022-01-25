@@ -20,7 +20,7 @@ const HeatMap = () => {
 
   if (error)
     return (
-      <Box height={135} m={2}>
+      <Box height={144} m={2}>
         <ErrorIndicator message="Failed to load Github contributions" />
       </Box>
     )
@@ -31,7 +31,7 @@ const HeatMap = () => {
         <HeatMapDayAxis />
         <Skeleton
           variant="rectangular"
-          height={135}
+          height={144}
           width="100%"
           sx={{ margin: 2 }}
         />

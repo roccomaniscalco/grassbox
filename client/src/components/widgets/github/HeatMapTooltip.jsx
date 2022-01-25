@@ -3,10 +3,10 @@ import { object, string } from "prop-types"
 import { useEffect } from "react"
 import useNodeMeasurements from "../../../hooks/useNodeMeasurements"
 
-const translatePercent = (position) => {
-  if (position === "left") return "40%"
-  if (position === "middle") return "0%"
-  if (position === "right") return "-40%"
+const translatePercent = (cursor, node) => {
+  if (cursor.x + 140 > node.width) return "-40%"
+  if (cursor.x - 140 < 0) return "40%"
+  return "0%"
 }
 
 const formatDate = (date) => {
@@ -21,17 +21,19 @@ const formatDate = (date) => {
 }
 
 const HeatMapTooltip = ({ value, date, heatMapRef }) => {
-  const { nodeRef, cursor, cleanUp } = useNodeMeasurements()
+  const { nodeRef, cursor, node, cleanUp } = useNodeMeasurements()
+
+  console.log(node)
 
   useEffect(() => {
     nodeRef(heatMapRef.current)
     return () => cleanUp()
   }, [nodeRef])
 
-  if (!cursor.pos) return null
+  if (!cursor.x) return null
 
   return (
-    <Box sx={{ transform: `translate(${translatePercent(cursor.pos)})` }}>
+    <Box sx={{ transform: `translate(${translatePercent(cursor, node)})` }}>
       <Paper variant="outlined">
         <Box sx={{ direction: "ltr" }} p={1}>
           <Typography variant="body2" color="textPrimary" noWrap>
