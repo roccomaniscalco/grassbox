@@ -14,7 +14,7 @@ const HeatMap = () => {
   const theme = useTheme()
   const { username } = useGithubContext()
   const { activity, error } = api.useGithubActivity(username)
-  const { nodeRef } = useNodeMeasurements()
+  const { nodeRef, cursor } = useNodeMeasurements()
 
   const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]
 
@@ -57,7 +57,7 @@ const HeatMap = () => {
           weekdayTicks={[]}
           weekdayLegendOffset={0}
           tooltip={({ value, date }) => (
-            <HeatMapTooltip value={value} date={date} />
+            <HeatMapTooltip value={value} date={date} pos={cursor.pos} />
           )}
           theme={{
             background: theme.palette.background.default,
