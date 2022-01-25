@@ -3,6 +3,7 @@ import { Box, Skeleton } from "@mui/material"
 import { TimeRange } from "@nivo/calendar"
 import { array } from "prop-types"
 import api from "../../../hooks/api"
+import useNodeMeasurements from "../../../hooks/useNodeMeasurements"
 import ErrorIndicator from "../../common/ErrorIndicator"
 import { useGithubContext } from "../../contexts/GithubContext"
 import ScrollBox from "../../styled/ScrollBox"
@@ -11,10 +12,11 @@ import HeatMapTooltip from "./HeatMapTooltip"
 
 const HeatMap = () => {
   const theme = useTheme()
-  const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]
-
   const { username } = useGithubContext()
   const { activity, error } = api.useGithubActivity(username)
+  const { nodeRef } = useNodeMeasurements()
+
+  const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]
 
   if (error)
     return (
@@ -39,7 +41,7 @@ const HeatMap = () => {
   return (
     <Box display="flex">
       <HeatMapDayAxis />
-      <ScrollBox direction="rtl">
+      <ScrollBox direction="rtl" ref={nodeRef}>
         <TimeRange
           data={activity.contributions}
           from={`${activity.year}-01-01`}
@@ -54,8 +56,8 @@ const HeatMap = () => {
           width={890}
           weekdayTicks={[]}
           weekdayLegendOffset={0}
-          tooltip={({ value, day, date }) => (
-            <HeatMapTooltip value={value} day={day} date={date} />
+          tooltip={({ value, date }) => (
+            <HeatMapTooltip value={value} date={date} />
           )}
           theme={{
             background: theme.palette.background.default,
