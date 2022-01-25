@@ -26,8 +26,13 @@ const ProfileHeader = () => {
       <Typography variant="body2" color="textSecondary" noWrap>
         {activity ? (
           <>
-            <strong>{activity.totalContributions} Contributions</strong> in{" "}
-            {activity.year}
+            <strong>
+              {activity.totalContributions}{" "}
+              {activity.totalContributions === 1
+                ? "contribution"
+                : "contributions"}
+            </strong>{" "}
+            in {activity.year}
           </>
         ) : (
           <Skeleton width="200px" />

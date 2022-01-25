@@ -17,7 +17,10 @@ const HeatMapTooltip = ({ value, date }) => {
     <Paper variant="outlined">
       <Box sx={{ direction: "ltr" }} p={1}>
         <Typography variant="body2" color="textPrimary">
-          <strong>{value} contributions</strong> on {formatDate(date)}
+          <strong>
+            {value} {value === 1 ? "contribution" : "contributions"}
+          </strong>{" "}
+          on {formatDate(date)}
         </Typography>
       </Box>
     </Paper>
