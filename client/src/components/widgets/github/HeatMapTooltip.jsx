@@ -1,10 +1,12 @@
 import { Box, Paper, Typography } from "@mui/material"
-import { object, oneOf, string } from "prop-types"
+import { object, string } from "prop-types"
+import { useEffect } from "react"
+import useNodeMeasurements from "../../../hooks/useNodeMeasurements"
 
 const translatePercent = (position) => {
-  if (position === "left") return "50%"
+  if (position === "left") return "40%"
   if (position === "middle") return "0%"
-  if (position === "right") return "-50%"
+  if (position === "right") return "-40%"
 }
 
 const formatDate = (date) => {
@@ -18,10 +20,18 @@ const formatDate = (date) => {
   return formatter.format(date)
 }
 
-const HeatMapTooltip = ({ value, date, pos }) => {
+const HeatMapTooltip = ({ value, date, heatMapRef }) => {
+  const { nodeRef, cursor, cleanUp } = useNodeMeasurements()
+
+  useEffect(() => {
+    nodeRef(heatMapRef.current)
+    return () => cleanUp()
+  }, [nodeRef])
+
+  if (!cursor.pos) return null
 
   return (
-    <Box sx={{ transform: `translate(${translatePercent(pos)})` }}>
+    <Box sx={{ transform: `translate(${translatePercent(cursor.pos)})` }}>
       <Paper variant="outlined">
         <Box sx={{ direction: "ltr" }} p={1}>
           <Typography variant="body2" color="textPrimary" noWrap>
@@ -39,7 +49,7 @@ const HeatMapTooltip = ({ value, date, pos }) => {
 HeatMapTooltip.propTypes = {
   value: string,
   date: object,
-  pos: oneOf(["left", "middle", "right"])
+  heatMapRef: object,
 }
 
 export default HeatMapTooltip

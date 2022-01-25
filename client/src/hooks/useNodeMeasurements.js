@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react"
 
 export const useNodeMeasurements = () => {
-  const [cursor, setCursor] = useState({ x: 0, y: 0, pos: "middle" })
+  const [cursor, setCursor] = useState({})
   const nodeRef = useCallback((node) => {
     if (node) node.onmousemove = (e) => handleMouseMove(e, node)
   }, [])
@@ -22,8 +22,12 @@ export const useNodeMeasurements = () => {
     return "right"
   }
 
-  console.log(cursor)
-  return { nodeRef, cursor }
+  const cleanUp = () => {
+    setCursor({})
+    nodeRef(null)
+  }
+
+  return { nodeRef, cursor, cleanUp }
 }
 
 export default useNodeMeasurements

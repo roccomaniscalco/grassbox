@@ -2,8 +2,8 @@ import { useTheme } from "@emotion/react"
 import { Box, Skeleton } from "@mui/material"
 import { TimeRange } from "@nivo/calendar"
 import { array } from "prop-types"
+import { useRef } from "react"
 import api from "../../../hooks/api"
-import useNodeMeasurements from "../../../hooks/useNodeMeasurements"
 import ErrorIndicator from "../../common/ErrorIndicator"
 import { useGithubContext } from "../../contexts/GithubContext"
 import ScrollBox from "../../styled/ScrollBox"
@@ -14,7 +14,7 @@ const HeatMap = () => {
   const theme = useTheme()
   const { username } = useGithubContext()
   const { activity, error } = api.useGithubActivity(username)
-  const { nodeRef, cursor } = useNodeMeasurements()
+  const heatMapRef = useRef()
 
   const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]
 
@@ -41,15 +41,15 @@ const HeatMap = () => {
   return (
     <Box display="flex">
       <HeatMapDayAxis />
-      <ScrollBox direction="rtl" ref={nodeRef}>
+      <ScrollBox direction="rtl" ref={heatMapRef}>
         <TimeRange
           data={activity.contributions}
           from={`${activity.year}-01-01`}
           to={`${activity.year}-12-31`}
           margin={{ top: 40, right: 10, bottom: 10, left: 10 }}
           dayRadius={2}
-          daySpacing={4}
-          dayBorderWidth={0}
+          dayBorderWidth={5}
+          dayBorderColor={theme.palette.background.default}
           emptyColor={theme.palette.action.hover}
           colors={colors}
           height={169}
@@ -57,7 +57,7 @@ const HeatMap = () => {
           weekdayTicks={[]}
           weekdayLegendOffset={0}
           tooltip={({ value, date }) => (
-            <HeatMapTooltip value={value} date={date} pos={cursor.pos} />
+            <HeatMapTooltip value={value} date={date} heatMapRef={heatMapRef} />
           )}
           theme={{
             background: theme.palette.background.default,
