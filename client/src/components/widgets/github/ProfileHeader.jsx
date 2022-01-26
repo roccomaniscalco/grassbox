@@ -27,8 +27,8 @@ const ProfileHeader = () => {
         {activity ? (
           <>
             <strong>
-              {activity.totalContributions}{" "}
-              {activity.totalContributions === 1
+              {activity.contributionCount}{" "}
+              {activity.contributionCount === 1
                 ? "contribution"
                 : "contributions"}
             </strong>{" "}

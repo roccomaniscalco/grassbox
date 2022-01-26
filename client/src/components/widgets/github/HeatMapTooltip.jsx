@@ -4,8 +4,8 @@ import { useEffect } from "react"
 import useNodeMeasurements from "../../../hooks/useNodeMeasurements"
 
 const translatePercent = (cursor, node) => {
-  if (cursor.x + 140 > node.width) return "-40%"
-  if (cursor.x - 140 < 0) return "40%"
+  if (cursor.x + 140 > node.width) return "-45%"
+  if (cursor.x - 140 < 0) return "45%"
   return "0%"
 }
 
@@ -22,8 +22,6 @@ const formatDate = (date) => {
 
 const HeatMapTooltip = ({ value, date, heatMapRef }) => {
   const { nodeRef, cursor, node, cleanUp } = useNodeMeasurements()
-
-  console.log(node)
 
   useEffect(() => {
     nodeRef(heatMapRef.current)
