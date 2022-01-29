@@ -13,7 +13,7 @@ import WeatherPreferences from "./WeatherPreferences"
 const WeatherWidget = () => {
   const { showCurrentDetails, showHourlyForecast, showDailyForecast, locale } =
     useWeatherContext()
-  const { weather, error } = api.useWeather(locale?.lat, locale?.lon)
+  const { error } = api.useWeather(locale?.lat, locale?.lon)
 
   if (error)
     return (
@@ -27,23 +27,23 @@ const WeatherWidget = () => {
   return (
     <WidgetContainer PreferencesPanel={WeatherPreferences}>
       <Card variant="outlined">
-        <LocaleHeader city={locale.name} weather={weather} />
+        <LocaleHeader />
         <TransitionGroup>
           {showCurrentDetails && (
             <Collapse in>
-              <CurrentDetails weather={weather} />
+              <CurrentDetails />
             </Collapse>
           )}
           {showHourlyForecast && (
             <Collapse in>
               <Divider />
-              <HourlyForecast weather={weather} />
+              <HourlyForecast />
             </Collapse>
           )}
           {showDailyForecast && (
             <Collapse in>
               <Divider />
-              <DailyForecast weather={weather} />
+              <DailyForecast />
             </Collapse>
           )}
         </TransitionGroup>
