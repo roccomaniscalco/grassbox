@@ -44,8 +44,8 @@ const HeatMap = () => {
       <ScrollBox direction="rtl" ref={heatMapRef}>
         <TimeRange
           data={activity.contributions}
-          from={activity.startDate}
-          to={"2022/1/30"}
+          from={activity.from}
+          to={activity.to}
           margin={{ top: 40, right: 10, bottom: 10, left: 10 }}
           dayRadius={2}
           dayBorderWidth={5}

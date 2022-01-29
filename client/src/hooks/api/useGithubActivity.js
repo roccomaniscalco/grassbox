@@ -29,9 +29,14 @@ const fetchGithubActivity = async (url) => {
     ...res,
     contributions: filteredContributions,
     contributionCount,
-    startDate: datedContributions[0].day.replaceAll("-", "/"),
-    endDate: endDate.toISOString().split("T")[0].replaceAll("-", "/"),
+    from: getFrom(datedContributions),
+    to: getTo(datedContributions),
   }
+}
+
+const getEndDate = (year) => {
+  if (year === "current") return new Date()
+  return new Date(year, 11, 31)
 }
 
 const flattenContributions = (contributions) => {
@@ -45,11 +50,6 @@ const flattenContributions = (contributions) => {
   return { flattenedContributions, contributionCount }
 }
 
-const getEndDate = (year) => {
-  if (year === "current") return new Date()
-  return new Date(year, 11, 31)
-}
-
 const addDatesToContributions = (contributions, endDate) => {
   contributions.reverse().forEach((contribution, idx) => {
     const currentDate = new Date(endDate)
@@ -58,5 +58,17 @@ const addDatesToContributions = (contributions, endDate) => {
   })
   return contributions.reverse()
 }
+
+const getTo = (datedContributions) => {
+  const lastContributionDay =
+    datedContributions[datedContributions.length - 1].day
+  const temp = new Date(lastContributionDay)
+  temp.setDate(temp.getDate() + 1)
+  const to = temp.toISOString().split("T")[0].replaceAll("-", "/")
+  return to
+}
+
+const getFrom = (datedContributions) =>
+  datedContributions[0].day.replaceAll("-", "/")
 
 export default useGithubActivity
