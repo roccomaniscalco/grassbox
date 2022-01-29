@@ -12,8 +12,8 @@ import HeatMapTooltip from "./HeatMapTooltip"
 
 const HeatMap = () => {
   const theme = useTheme()
-  const { username } = useGithubContext()
-  const { activity, error } = api.useGithubActivity(username, "current")
+  const { username, year } = useGithubContext()
+  const { activity, error } = api.useGithubActivity(username, year)
   const heatMapRef = useRef()
 
   const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]

@@ -5,10 +5,13 @@ const GithubContext = createContext()
 
 const GithubProvider = ({ children }) => {
   const [username, setUsername] = useState("roccomaniscalco")
+  const [year, setYear] = useState("current")
 
   const githubValue = {
     username,
     setUsername,
+    year,
+    setYear,
   }
 
   return (

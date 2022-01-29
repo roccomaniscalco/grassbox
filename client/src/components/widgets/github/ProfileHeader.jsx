@@ -6,8 +6,8 @@ import { useGithubContext } from "../../contexts/GithubContext"
 import ProfileInput from "./ProfileInput"
 
 const ProfileHeader = () => {
-  const { username } = useGithubContext()
-  const { activity, error } = api.useGithubActivity(username)
+  const { username, year } = useGithubContext()
+  const { activity, error } = api.useGithubActivity(username, year)
 
   if (error) return null
 
@@ -32,7 +32,7 @@ const ProfileHeader = () => {
                 ? "contribution"
                 : "contributions"}
             </strong>{" "}
-            in {activity.year}
+            in {activity.year === "current" ? "the last year" : year}
           </>
         ) : (
           <Skeleton width="200px" />
