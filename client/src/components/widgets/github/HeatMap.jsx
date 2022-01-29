@@ -13,7 +13,7 @@ import HeatMapTooltip from "./HeatMapTooltip"
 const HeatMap = () => {
   const theme = useTheme()
   const { username } = useGithubContext()
-  const { activity, error } = api.useGithubActivity(username)
+  const { activity, error } = api.useGithubActivity(username, "current")
   const heatMapRef = useRef()
 
   const colors = ["#00441b", "#006d2c", "#238b45", "#41ab5d"]
@@ -44,16 +44,16 @@ const HeatMap = () => {
       <ScrollBox direction="rtl" ref={heatMapRef}>
         <TimeRange
           data={activity.contributions}
-          from={activity.contributions[activity.contributions.length - 1].day}
-          to={activity.contributions[0].day}
+          from={activity.startDate}
+          to={"2022/1/30"}
           margin={{ top: 40, right: 10, bottom: 10, left: 10 }}
           dayRadius={2}
           dayBorderWidth={5}
+          height={169}
+          width={890}
           dayBorderColor={theme.palette.background.default}
           emptyColor={theme.palette.action.hover}
           colors={colors}
-          height={169}
-          width={890}
           weekdayTicks={[]}
           weekdayLegendOffset={0}
           tooltip={({ value, date }) => (

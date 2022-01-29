@@ -1,46 +1,36 @@
 import useSWR from "swr"
 import fetcher from "../../utils/fetcher"
 
-const useGithubActivity = (username) => {
+const useGithubActivity = (username, year = "current") => {
   const { data, error } = useSWR(
-    `/api/github/activity/${username}/2022`,
+    `/api/github/activity/${username}/${year}`,
     fetchGithubActivity
   )
 
-  console.log(error)
   return { activity: data, error }
 }
 
 const fetchGithubActivity = async (url) => {
   const res = await fetcher(url)
-  const { contributionCount, contributions } = formatContributions(
-    res.contributions,
-    res.year
+  const endDate = getEndDate(res.year)
+
+  const { flattenedContributions, contributionCount } = flattenContributions(
+    res.contributions
   )
-
-  return {
-    ...res,
-    contributions,
-    contributionCount,
-  }
-}
-
-const formatContributions = (contributions, year) => {
-  const { flattenedContributions, contributionCount } =
-    flattenContributions(contributions)
-
-  const datedContributions = addDateToContributions(
+  const datedContributions = addDatesToContributions(
     flattenedContributions,
-    getEndDate(year)
+    endDate
   )
-
   const filteredContributions = datedContributions.filter(
     (contribution) => contribution.value > 0
   )
 
   return {
-    contributionCount,
+    ...res,
     contributions: filteredContributions,
+    contributionCount,
+    startDate: datedContributions[0].day.replaceAll("-", "/"),
+    endDate: endDate.toISOString().split("T")[0].replaceAll("-", "/"),
   }
 }
 
@@ -60,13 +50,13 @@ const getEndDate = (year) => {
   return new Date(year, 11, 31)
 }
 
-const addDateToContributions = (contributions, endDate) => {
+const addDatesToContributions = (contributions, endDate) => {
   contributions.reverse().forEach((contribution, idx) => {
     const currentDate = new Date(endDate)
     currentDate.setDate(currentDate.getDate() - idx)
     contribution.day = currentDate.toISOString().split("T")[0]
   })
-  return contributions
+  return contributions.reverse()
 }
 
 export default useGithubActivity
