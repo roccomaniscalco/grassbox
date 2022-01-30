@@ -62,9 +62,7 @@ const addDatesToContributions = (contributions, endDate) => {
 const getTo = (datedContributions) => {
   const lastContributionDay =
     datedContributions[datedContributions.length - 1].day
-  const temp = new Date(lastContributionDay)
-  temp.setDate(temp.getDate() + 1)
-  const to = temp.toISOString().split("T")[0].replaceAll("-", "/")
+  const to = lastContributionDay.replaceAll("-", "/")
   return to
 }
 
