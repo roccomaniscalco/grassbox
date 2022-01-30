@@ -4,6 +4,7 @@ import {
   HomeRounded,
   PersonRounded,
 } from "@mui/icons-material"
+import TranslateRoundedIcon from "@mui/icons-material/TranslateRounded"
 import { Box, Drawer, List, styled, useMediaQuery } from "@mui/material"
 import { bool, string } from "prop-types"
 import ListItemLink from "./ListItemLink"
@@ -35,6 +36,11 @@ const SideBar = ({ isOpen, width }) => {
           href="/experimental/weather"
         />
         <ListItemLink Icon={GitHub} text="Github" href="/experimental/github" />
+        <ListItemLink
+          Icon={TranslateRoundedIcon}
+          text="Japanese"
+          href="/experimental/japanese"
+        />
       </List>
     </Drawer>
   )
