@@ -1,24 +1,29 @@
-import { VolumeUpRounded } from "@mui/icons-material"
-import { Box, Card, IconButton } from "@mui/material"
-import useDictateJapanese from "../../../hooks/useDictateJapanese"
+import { Box, Card, Stack, Typography } from "@mui/material"
+import japanesePhrases from "../../../utils/japanesePhrases.json"
 import WidgetContainer from "../../common/WidgetContainer"
+import DictateButton from "./DictateButton"
 
 const JapaneseWidget = () => {
-  const { dictate, hasVoice } = useDictateJapanese()
+  const phrase = japanesePhrases[5]
 
   return (
     <WidgetContainer>
       <Card variant="outlined">
         <Box p={2}>
-          {hasVoice && (
-            <IconButton
-              color="primary"
-              aria-label="play Japanese phrase of the day"
-              onClick={() => dictate("私の名前はです")}
-            >
-              <VolumeUpRounded />
-            </IconButton>
-          )}
+          <Typography variant="h6" color="textSecondary">
+            {phrase.japanese}
+          </Typography>
+          <Stack direction="row" alignItems="center" gap={1}>
+            <Typography variant="h4" color="textPrimary">
+              {phrase.romaji}
+            </Typography>
+            <DictateButton />
+          </Stack>
+          <Box pt={2.5}>
+            <Typography variant="body1" color="textPrimary">
+              {phrase.english} {phrase.context && `– ${phrase.context}`}
+            </Typography>
+          </Box>
         </Box>
       </Card>
     </WidgetContainer>

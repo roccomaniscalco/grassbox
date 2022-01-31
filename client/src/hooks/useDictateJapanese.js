@@ -1,14 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const useDictateJapanese = () => {
   const [voice, setVoice] = useState(null)
   const synth = window.speechSynthesis
 
-  synth.onvoiceschanged = () => {
+  const extrapolateVoice = () => {
+    if (synth.getVoices() === []) return
     const voices = synth.getVoices()
     const japaneseVoice = voices[18]
     setVoice(japaneseVoice)
   }
+
+  useEffect(() => {
+    extrapolateVoice()
+  }, [])
+
+  synth.onvoiceschanged = () => extrapolateVoice()
 
   const dictate = (text) => {
     const message = new SpeechSynthesisUtterance()
@@ -18,7 +25,7 @@ const useDictateJapanese = () => {
     synth.speak(message)
   }
 
-  return { dictate, hasVoice: voice ? true : false }
+  return { dictate, voice }
 }
 
 export default useDictateJapanese
