@@ -1,9 +1,9 @@
 import { VolumeUpRounded } from "@mui/icons-material"
 import { IconButton } from "@mui/material"
+import { string } from "prop-types"
 import useDictateJapanese from "../../../hooks/useDictateJapanese"
-import japanesePhrases from "../../../utils/japanesePhrases.json"
 
-const DictateButton = () => {
+const DictateButton = ({ text }) => {
   const { dictate, voice } = useDictateJapanese()
 
   if (!voice) return null
@@ -13,11 +13,15 @@ const DictateButton = () => {
       size="small"
       color="success"
       aria-label="play Japanese phrase of the day"
-      onClick={() => dictate(japanesePhrases[0].japanese)}
+      onClick={() => dictate(text)}
     >
       <VolumeUpRounded fontSize="inherit" />
     </IconButton>
   )
+}
+
+DictateButton.propTypes = {
+  text: string,
 }
 
 export default DictateButton

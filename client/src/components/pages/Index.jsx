@@ -2,6 +2,7 @@ import { Grid } from "@mui/material"
 import { GithubProvider } from "../contexts/GithubContext"
 import { WeatherProvider } from "../contexts/WeatherContext"
 import GithubActivityWidget from "../widgets/github/GithubActivityWidget"
+import JapaneseWidget from "../widgets/japanese/JapaneseWidget"
 import WeatherWidget from "../widgets/weather/WeatherWidget"
 
 const Index = () => {
@@ -12,10 +13,15 @@ const Index = () => {
           <GithubActivityWidget />
         </GithubProvider>
       </Grid>
-      <Grid item xs={12} lg={5}>
-        <WeatherProvider>
-          <WeatherWidget />
-        </WeatherProvider>
+      <Grid container item xs={12} lg={5} spacing={3}>
+        <Grid item xs={12} >
+          <JapaneseWidget />
+        </Grid>
+        <Grid item xs={12}>
+          <WeatherProvider>
+            <WeatherWidget />
+          </WeatherProvider>
+        </Grid>
       </Grid>
     </Grid>
   )

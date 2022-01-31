@@ -4,7 +4,7 @@ import WidgetContainer from "../../common/WidgetContainer"
 import DictateButton from "./DictateButton"
 
 const JapaneseWidget = () => {
-  const phrase = japanesePhrases[5]
+  const phrase = japanesePhrases[3]
 
   return (
     <WidgetContainer>
@@ -17,7 +17,7 @@ const JapaneseWidget = () => {
             <Typography variant="h4" color="textPrimary">
               {phrase.romaji}
             </Typography>
-            <DictateButton />
+            <DictateButton text={phrase.japanese}/>
           </Stack>
           <Box pt={2.5}>
             <Typography variant="body1" color="textPrimary">
