@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 const useDictateJapanese = () => {
   const [voice, setVoice] = useState(null)
+  const [isDictating, setIsDictating] = useState(false)
   const synth = window.speechSynthesis
 
   const extrapolateVoice = () => {
@@ -13,19 +14,27 @@ const useDictateJapanese = () => {
 
   useEffect(() => {
     extrapolateVoice()
-  }, [])
+    console.log(isDictating)
+  }, [isDictating])
 
   synth.onvoiceschanged = () => extrapolateVoice()
 
   const dictate = (text) => {
+    if (!voice) return
+    setIsDictating(true)
     const message = new SpeechSynthesisUtterance()
     message.lang = "ja-JP"
     message.voice = voice
     message.text = text
+    message.onend = () => setIsDictating(false)
     synth.speak(message)
   }
 
-  return { dictate, voice }
+  return {
+    dictate,
+    isDictating,
+    hasVoice: voice !== null,
+  }
 }
 
 export default useDictateJapanese

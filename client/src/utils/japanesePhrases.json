@@ -50,9 +50,9 @@
   },
   {
     "id": 7,
-    "japanese": "___–さんも",
-    "romaji": "___–san mo?",
-    "english": "___–and you?",
+    "japanese": "_–さんも",
+    "romaji": "_–san mo?",
+    "english": "_–and you?",
     "context": "follows a friend's name"
   },
   {
@@ -64,9 +64,9 @@
   },
   {
     "id": 9,
-    "japanese": "私の名前は___です",
-    "romaji": "watashi no namae wa ___ desu",
-    "english": "my name is ___",
+    "japanese": "私の名前は_です",
+    "romaji": "watashi no namae wa _ desu",
+    "english": "my name is _",
     "context": null
   }
 ]

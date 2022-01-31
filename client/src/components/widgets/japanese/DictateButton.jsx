@@ -1,21 +1,27 @@
 import { VolumeUpRounded } from "@mui/icons-material"
 import { IconButton } from "@mui/material"
+import { useTheme } from "@mui/system"
 import { string } from "prop-types"
 import useDictateJapanese from "../../../hooks/useDictateJapanese"
 
 const DictateButton = ({ text }) => {
-  const { dictate, voice } = useDictateJapanese()
-
-  if (!voice) return null
+  const theme = useTheme()
+  const { dictate, hasVoice, isDictating } = useDictateJapanese()
 
   return (
     <IconButton
-      size="small"
-      color="success"
+      sx={{
+        background: theme.palette.divider,
+        color: isDictating
+          ? theme.palette.success.main
+          : theme.palette.text.primary,
+      }}
+      disabled={!hasVoice}
+      component="span"
       aria-label="play Japanese phrase of the day"
       onClick={() => dictate(text)}
     >
-      <VolumeUpRounded fontSize="inherit" />
+      <VolumeUpRounded />
     </IconButton>
   )
 }
