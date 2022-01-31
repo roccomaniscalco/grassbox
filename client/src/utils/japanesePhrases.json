@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "japanese": "こんにちは",
+    "romaji": "konnichiwa",
+    "english": "hello",
+    "context": null
+  },
+  {
+    "id": 1,
+    "japanese": "おはようございます",
+    "romaji": "ohayou gozaimasu",
+    "english": "good morning",
+    "context": null
+  },
+  {
+    "id": 2,
+    "japanese": "こんばんは",
+    "romaji": "konbanwa",
+    "english": "good evening",
+    "context": null
+  },
+  {
+    "id": 3,
+    "japanese": "もしもし",
+    "romaji": "moshi moshi",
+    "english": "hello",
+    "context": "used on the phone or in a video call"
+  },
+  {
+    "id": 4,
+    "japanese": "お元気ですか",
+    "romaji": "ogenki desu ka?",
+    "english": "how are you?",
+    "context": null
+  },
+  {
+    "id": 5,
+    "japanese": "元気です",
+    "romaji": "genki desu",
+    "english": "I'm good/I've been doing well, thanks",
+    "context": null
+  },
+  {
+    "id": 6,
+    "japanese": "お久しぶりですね",
+    "romaji": "ohisashiburi desu ne",
+    "english": "long time no see",
+    "context": null
+  },
+  {
+    "id": 7,
+    "japanese": "___–さんも",
+    "romaji": "___–san mo?",
+    "english": "___–and you?",
+    "context": "follows a friend's name"
+  },
+  {
+    "id": 8,
+    "japanese": "名前は何ですか",
+    "romaji": "namae wa nan desu ka?",
+    "english": "what's your name?",
+    "context": null
+  },
+  {
+    "id": 9,
+    "japanese": "私の名前は___です",
+    "romaji": "watashi no namae wa ___ desu",
+    "english": "my name is ___",
+    "context": null
+  }
+]
