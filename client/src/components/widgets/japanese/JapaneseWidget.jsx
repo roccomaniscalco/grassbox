@@ -27,7 +27,6 @@ const JapaneseWidget = () => {
                 {phrase.english} {phrase.context && <i>– {phrase.context}</i>}
               </Typography>
             </Box>
-
             <DictateButton text={phrase.japanese} />
           </Stack>
         </Box>

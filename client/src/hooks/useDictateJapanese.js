@@ -5,19 +5,18 @@ const useDictateJapanese = () => {
   const [isDictating, setIsDictating] = useState(false)
   const synth = window.speechSynthesis
 
-  const extrapolateVoice = () => {
+  const getJapaneseVoice = () => {
     if (synth.getVoices() === []) return
     const voices = synth.getVoices()
     const japaneseVoice = voices[18]
-    setVoice(japaneseVoice)
+    return japaneseVoice
   }
 
   useEffect(() => {
-    extrapolateVoice()
-    console.log(isDictating)
-  }, [isDictating])
+    setVoice(getJapaneseVoice())
+  }, [])
 
-  synth.onvoiceschanged = () => extrapolateVoice()
+  synth.onvoiceschanged = () => setVoice(getJapaneseVoice())
 
   const dictate = (text) => {
     if (!voice) return

@@ -23,7 +23,7 @@ const SideBar = ({ isOpen, width }) => {
       {/* Header */}
       <HeaderOffset />
       {/* Content */}
-      <List sx={{ width: width }} dense>
+      <List sx={{ pt: 2.5, width: width }} dense>
         <ListItemLink Icon={HomeRounded} text="Dashboard" href="/" />
         <ListItemLink
           Icon={PersonRounded}

@@ -22,7 +22,7 @@ const MainContent = ({ isOpen, sideBarWidth, children }) => {
   return (
     <Box display="flex" justifyContent="flex-end" overflow="hidden">
       <MainContentContainer isOpen={isOpen} sideBarWidth={sideBarWidth}>
-        <Container maxWidth="xl" sx={{ paddingTop: 6 }}>
+        <Container maxWidth="xl" sx={{ paddingTop: 3 }}>
           {children}
         </Container>
       </MainContentContainer>
