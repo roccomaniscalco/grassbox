@@ -2,30 +2,35 @@ import { useEffect, useState } from "react"
 import { useJapaneseContext } from "../components/contexts/JapaneseContext"
 
 const useDictateJapanese = () => {
-  const { audioSpeed } = useJapaneseContext()
-  const [voice, setVoice] = useState(null)
+  const { audioSpeed, setVoices, activeVoice, setActiveVoice } =
+    useJapaneseContext()
   const [isDictating, setIsDictating] = useState(false)
   const synth = window.speechSynthesis
 
-  const getJapaneseVoice = () => {
+  const initVoices = () => {
     if (synth.getVoices() === []) return
-    const voices = synth.getVoices()
-    const japaneseVoice = voices[18]
-    return japaneseVoice
+    const windowVoices = synth.getVoices()
+    const japaneseVoices = windowVoices.filter(
+      (voice) => voice.lang === "ja-JP"
+    )
+    setVoices(japaneseVoices)
+    if (japaneseVoices.length > 0) setActiveVoice(japaneseVoices[0])
   }
 
   useEffect(() => {
-    setVoice(getJapaneseVoice())
+    initVoices()
   }, [])
 
-  synth.onvoiceschanged = () => setVoice(getJapaneseVoice())
+  synth.onvoiceschanged = () => {
+    initVoices()
+  }
 
   const dictate = (text) => {
-    if (!voice || isDictating) return
+    if (!activeVoice || isDictating) return
     setIsDictating(true)
     const message = new SpeechSynthesisUtterance()
     message.lang = "ja-JP"
-    message.voice = voice
+    message.voice = activeVoice
     message.text = text
     message.rate = audioSpeed
     message.onend = () => setIsDictating(false)
@@ -35,7 +40,7 @@ const useDictateJapanese = () => {
   return {
     dictate,
     isDictating,
-    hasVoice: voice !== null,
+    hasVoice: activeVoice !== null,
   }
 }
 
