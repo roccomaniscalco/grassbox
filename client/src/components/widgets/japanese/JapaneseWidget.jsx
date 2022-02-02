@@ -3,33 +3,37 @@ import japanesePhrases from "../../../utils/japanesePhrases.json"
 import WidgetContainer from "../../common/WidgetContainer"
 import DictateButton from "./DictateButton"
 
+const getRandomPhrase = () => {
+  const randomIndex = Math.floor(Math.random() * japanesePhrases.length)
+  return japanesePhrases[randomIndex]
+}
+
 const JapaneseWidget = () => {
-  const phrase = japanesePhrases[3]
+  const phrase = getRandomPhrase()
 
   return (
     <WidgetContainer>
       <Card variant="outlined">
-        <Box p={2}>
-          <Typography variant="h6" color="textSecondary">
-            {phrase.japanese}
-          </Typography>
-          <Typography variant="h4" color="textPrimary">
-            {phrase.romaji}
-          </Typography>
-          <Stack
-            direction="row"
-            alignItems="end"
-            justifyContent="space-between"
-            gap={2}
-          >
-            <Box pt={3}>
-              <Typography variant="body1" color="textPrimary">
-                {phrase.english} {phrase.context && <i>– {phrase.context}</i>}
-              </Typography>
-            </Box>
-            <DictateButton text={phrase.japanese} />
-          </Stack>
-        </Box>
+        <Stack
+          direction="row"
+          alignItems="end"
+          justifyContent="space-between"
+          gap={2}
+          p={2}
+        >
+          <Box>
+            <Typography variant="h6" color="textSecondary">
+              {phrase.japanese}
+            </Typography>
+            <Typography variant="h4" color="textPrimary" paragraph>
+              {phrase.romaji}
+            </Typography>
+            <Typography variant="body1" color="textPrimary">
+              {phrase.english} {phrase.context && <i>– {phrase.context}</i>}
+            </Typography>
+          </Box>
+          <DictateButton text={phrase.japanese} />
+        </Stack>
       </Card>
     </WidgetContainer>
   )

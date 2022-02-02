@@ -17,7 +17,6 @@ const DictateButton = ({ text }) => {
           : theme.palette.text.primary,
       }}
       disabled={!hasVoice}
-      component="span"
       aria-label="play Japanese phrase of the day"
       onClick={() => dictate(text)}
     >
