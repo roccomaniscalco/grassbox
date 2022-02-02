@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
+import { useJapaneseContext } from "../components/contexts/JapaneseContext"
 
 const useDictateJapanese = () => {
+  const { audioSpeed } = useJapaneseContext()
   const [voice, setVoice] = useState(null)
   const [isDictating, setIsDictating] = useState(false)
   const synth = window.speechSynthesis
@@ -25,6 +27,7 @@ const useDictateJapanese = () => {
     message.lang = "ja-JP"
     message.voice = voice
     message.text = text
+    message.rate = audioSpeed
     message.onend = () => setIsDictating(false)
     synth.speak(message)
   }
