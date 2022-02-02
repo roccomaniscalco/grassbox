@@ -13,20 +13,22 @@ const JapanesePreferences = () => {
         <Typography variant="caption" color="textSecondary">
           Japanese preferences
         </Typography>
-        <Stack direction="row" gap={3} alignItems="center">
-          <Typography variant="body2">0.5x</Typography>
-          <Slider
-            value={audioSpeed}
-            color="success"
-            marks={marks}
-            min={0.5}
-            step={0.1}
-            max={1.5}
-            valueLabelDisplay="auto"
-            aria-labelledby="non-linear-slider"
-            onChange={handleChange}
-          />
-          <Typography variant="body2">1.5x</Typography>
+        <Stack gap={1}>
+          <Typography variant="body1">Playback speed: {audioSpeed}x</Typography>
+          <Stack direction="row" gap={3} alignItems="center">
+            <Typography variant="body2">0.5x</Typography>
+            <Slider
+              value={audioSpeed}
+              color="success"
+              marks={marks}
+              min={0.5}
+              step={0.1}
+              max={1.5}
+              aria-labelledby="non-linear-slider"
+              onChange={handleChange}
+            />
+            <Typography variant="body2">1.5x</Typography>
+          </Stack>
         </Stack>
       </Stack>
     </Card>
