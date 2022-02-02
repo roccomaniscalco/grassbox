@@ -1,7 +1,10 @@
+import { SlowMotionVideoRounded } from "@mui/icons-material"
 import { Card, Slider, Stack, Typography } from "@mui/material"
+import { useTheme } from "@mui/system"
 import { useJapaneseContext } from "../../contexts/JapaneseContext"
 
 const JapanesePreferences = () => {
+  const theme = useTheme()
   const { audioSpeed, setAudioSpeed } = useJapaneseContext()
 
   const marks = [{ value: 1 }]
@@ -13,8 +16,16 @@ const JapanesePreferences = () => {
         <Typography variant="caption" color="textSecondary">
           Japanese preferences
         </Typography>
-        <Stack gap={1}>
-          <Typography variant="body1">Playback speed: {audioSpeed}x</Typography>
+        <Stack gap={0.5}>
+          <Stack direction="row" gap={1} alignItems="center">
+            <SlowMotionVideoRounded
+              fontSize="small"
+              htmlColor={theme.palette.action.disabled}
+            />
+            <Typography variant="body2">
+              Playback speed: {audioSpeed}x
+            </Typography>
+          </Stack>
           <Stack direction="row" gap={3} alignItems="center">
             <Typography variant="body2">0.5x</Typography>
             <Slider
