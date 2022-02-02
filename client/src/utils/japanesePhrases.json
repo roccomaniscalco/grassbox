@@ -50,9 +50,9 @@
   },
   {
     "id": 7,
-    "japanese": "_–さんも",
-    "romaji": "_–san mo?",
-    "english": "_–and you?",
+    "japanese": "_さんも",
+    "romaji": "_ san mo?",
+    "english": "_ and you?",
     "context": "follows a friend's name"
   },
   {
@@ -67,6 +67,391 @@
     "japanese": "私の名前は_です",
     "romaji": "watashi no namae wa _ desu",
     "english": "my name is _",
+    "context": null
+  },
+  {
+    "id": 10,
+    "japanese": "はい",
+    "romaji": "hai",
+    "english": "yes",
+    "context": null
+  },
+  {
+    "id": 11,
+    "japanese": "いいえ",
+    "romaji": "iie",
+    "english": "no",
+    "context": null
+  },
+  {
+    "id": 12,
+    "japanese": "おねがいします",
+    "romaji": "o-negai shimasu",
+    "english": "please",
+    "context": null
+  },
+  {
+    "id": 13,
+    "japanese": "ありがとう",
+    "romaji": "arigatō",
+    "english": "thank you",
+    "context": null
+  },
+  {
+    "id": 14,
+    "japanese": "どういたしまして",
+    "romaji": "dou itashimashite",
+    "english": "you're welcome",
+    "context": null
+  },
+  {
+    "id": 15,
+    "japanese": "すみません",
+    "romaji": "Sumimasen",
+    "english": "excuse me",
+    "context": null
+  },
+  {
+    "id": 16,
+    "japanese": "ごめんなさい",
+    "romaji": "gomennasai",
+    "english": "I am sorry",
+    "context": null
+  },
+  {
+    "id": 17,
+    "japanese": "おやすみなさい",
+    "romaji": "o-yasumi nasai",
+    "english": "good night",
+    "context": null
+  },
+  {
+    "id": 18,
+    "japanese": "えいごをはなせますか",
+    "romaji": "eigo o hanasemasu ka?",
+    "english": "do you speak English?",
+    "context": null
+  },
+  {
+    "id": 19,
+    "japanese": "ここに　えいごおはなせるひとはいますか",
+    "romaji": "koko ni eigo o hanaseru hito wa imasu ka?",
+    "english": "does anyone here speak English?",
+    "context": null
+  },
+  {
+    "id": 20,
+    "japanese": "わたしは　にほんごがすこししか　はなせません",
+    "romaji": "watashi wa nihongo ga sukoshi shika hanasemasen",
+    "english": "I only speak a little Japanese",
+    "context": null
+  },
+  {
+    "id": 21,
+    "japanese": "おなまえはなんですか",
+    "romaji": "o-namae wa nan desu ka?",
+    "english": "what is your name?",
+    "context": null
+  },
+  {
+    "id": 22,
+    "japanese": "おげんきですか",
+    "romaji": "o-genki desu ka?",
+    "english": "how are you?",
+    "context": null
+  },
+  {
+    "id": 23,
+    "japanese": "おあいできて　うれしいです",
+    "romaji": "oaidekite ureshī desu?",
+    "english": "I am very glad to meet you",
+    "context": null
+  },
+  {
+    "id": 24,
+    "japanese": "わかりません",
+    "romaji": "wakarimasen",
+    "english": "I don't understand",
+    "context": null
+  },
+  {
+    "id": 25,
+    "japanese": "なんていいましたか",
+    "romaji": "nante iimashita ka",
+    "english": "what did you say?",
+    "context": null
+  },
+  {
+    "id": 26,
+    "japanese": "もっと　ゆっくりはなしてください",
+    "romaji": "motto yukkuri hanashite kudasai?",
+    "english": "can you speak more slowly?",
+    "context": null
+  },
+  {
+    "id": 27,
+    "japanese": "よくわかります",
+    "romaji": "yoku wakarimasu",
+    "english": "I understand you perfectly",
+    "context": null
+  },
+  {
+    "id": 28,
+    "japanese": "おたずねしてもいいですか",
+    "romaji": "o-tazune shite mo ii desu ka?",
+    "english": "may I ask you a question?",
+    "context": null
+  },
+  {
+    "id": 29,
+    "japanese": "_はどこにありますか",
+    "romaji": "_ wa doko desu ka?",
+    "english": "where is _?",
+    "context": null
+  },
+  {
+    "id": 30,
+    "japanese": "地図を書いてもらえますか",
+    "romaji": "chizu o kaite moraemasu ka?",
+    "english": "can you please draw a map for me?",
+    "context": null
+  },
+  {
+    "id": 31,
+    "japanese": "ここはどこですか",
+    "romaji": "koko wa doko desu ka?",
+    "english": "where is this?/where am I?",
+    "context": null
+  },
+  {
+    "id": 32,
+    "japanese": "日本語は話せません",
+    "romaji": "nihongo wa hanasemasen",
+    "english": "I can't speak Japanese",
+    "context": null
+  },
+  {
+    "id": 33,
+    "japanese": "もう一度お願いします",
+    "romaji": "mou ichido onegaishimasu?",
+    "english": "can you please say that again?",
+    "context": null
+  },
+  {
+    "id": 34,
+    "japanese": "メニューをください",
+    "romaji": "menu o kudasai",
+    "english": "please give me a menu",
+    "context": null
+  },
+  {
+    "id": 35,
+    "japanese": "注文をお願いします",
+    "romaji": "chumon o onegashimasu",
+    "english": "I'm ready to order",
+    "context": null
+  },
+  {
+    "id": 36,
+    "japanese": "おすすめのメニュ―はどれですか",
+    "romaji": "o-susume no menu wa dore desu ka?",
+    "english": "what menu item do you recommend?",
+    "context": null
+  },
+  {
+    "id": 37,
+    "japanese": "これは何ですか",
+    "romaji": "kore wa nan desu ka?",
+    "english": "what is this?",
+    "context": null
+  },
+  {
+    "id": 38,
+    "japanese": "これをお願いします",
+    "romaji": "kore o onegaishimasu",
+    "english": "I'd like this, please",
+    "context": "used to order off a menu"
+  },
+  {
+    "id": 39,
+    "japanese": "コーヒーはつきますか",
+    "romaji": "kohi wa tsukimasu ka?",
+    "english": "does it include coffee?",
+    "context": null
+  },
+  {
+    "id": 40,
+    "japanese": "水をお願いします",
+    "romaji": "mizu o onegaishimasu",
+    "english": "please give me some water",
+    "context": null
+  },
+  {
+    "id": 41,
+    "japanese": "トイレはどこですか",
+    "romaji": "toire wa doko desu ka?",
+    "english": "where is the bathroom?",
+    "context": null
+  },
+  {
+    "id": 42,
+    "japanese": "いただきます",
+    "romaji": "itadakimasu",
+    "english": "phrase said before eating food",
+    "context": null
+  },
+  {
+    "id": 43,
+    "japanese": "ごちそうさまでした",
+    "romaji": "gochisosama deshita",
+    "english": "thank you for the meal",
+    "context": "said after eating"
+  },
+  {
+    "id": 44,
+    "japanese": "お会計をお願いします",
+    "romaji": "o-kaikei o onegaishimasu",
+    "english": "check please",
+    "context": null
+  },
+  {
+    "id": 45,
+    "japanese": "切符売り場はどこですか",
+    "romaji": "kippu uriba wa doko desu ka?",
+    "english": "where can I buy tickets?",
+    "context": null
+  },
+  {
+    "id": 46,
+    "japanese": "_までの切符をください",
+    "romaji": "_ made no kippu o kudasai",
+    "english": "please give me a ticket to _",
+    "context": null
+  },
+  {
+    "id": 47,
+    "japanese": "_にはどう行けばいいですか",
+    "romaji": "_ ni wa dou ikeba ii desu ka?",
+    "english": "how do I get to _?",
+    "context": null
+  },
+  {
+    "id": 48,
+    "japanese": "_行きの電車はどれですか",
+    "romaji": "_ yuki no densha wa dore desu ka?",
+    "english": "which train goes to _?",
+    "context": null
+  },
+  {
+    "id": 49,
+    "japanese": "この電車は_に行きますか",
+    "romaji": "kono densha wa _ ni ikimasu ka?",
+    "english": "does this train go to _?",
+    "context": null
+  },
+  {
+    "id": 50,
+    "japanese": "次の_行きは何時ですか",
+    "romaji": "tsugi no _ yuki wa nanji desu ka?",
+    "english": "what time is the next train to _?",
+    "context": null
+  },
+  {
+    "id": 51,
+    "japanese": "ここは何駅ですか",
+    "romaji": "koko wa nan eki desu ka?",
+    "english": "what station is this?",
+    "context": null
+  },
+  {
+    "id": 52,
+    "japanese": "降ります",
+    "romaji": "orimasu",
+    "english": "I'm getting off",
+    "context": "used when exiting a bus or train"
+  },
+  {
+    "id": 53,
+    "japanese": "観光案内所はどこですか",
+    "romaji": "kankou-annai-jou wa doko desu ka?",
+    "english": "where is the tourist information center?",
+    "context": null
+  },
+  {
+    "id": 54,
+    "japanese": "パンフレットはありますか",
+    "romaji": "pamfuretto wa arimasu ka?",
+    "english": "are there any brochures?",
+    "context": null
+  },
+  {
+    "id": 55,
+    "japanese": "写真を撮ってもいいですか",
+    "romaji": "shashin o totte mo ii desu ka?",
+    "english": "may I take a photo?",
+    "context": null
+  },
+  {
+    "id": 56,
+    "japanese": "写真を撮ってもらえますか",
+    "romaji": "shashin o totte moraemasu ka?",
+    "english": "can you please take a picture?",
+    "context": null
+  },
+  {
+    "id": 57,
+    "japanese": "タクシー乗り場はどこですか",
+    "romaji": "takushii noriba wa doko desu ka?",
+    "english": "where is the taxi stand?",
+    "context": null
+  },
+  {
+    "id": 58,
+    "japanese": "ここに行ってください",
+    "romaji": "koko ni itte kudasai",
+    "english": "please go here",
+    "context": null
+  },
+  {
+    "id": 59,
+    "japanese": "これを見せてください",
+    "romaji": "kore o misete kudasai",
+    "english": "please show me this",
+    "context": null
+  },
+  {
+    "id": 60,
+    "japanese": "試着してもいいですか",
+    "romaji": "kichaku shite mo ii desu ka?",
+    "english": "can I try it on?",
+    "context": null
+  },
+  {
+    "id": 61,
+    "japanese": "_はありますか",
+    "romaji": "_ wa arimasu ka?",
+    "english": "do you have _?",
+    "context": null
+  },
+  {
+    "id": 62,
+    "japanese": "これをください",
+    "romaji": "kore o kudasai",
+    "english": "I'll take this",
+    "context": null
+  },
+  {
+    "id": 63,
+    "japanese": "いくらですか",
+    "romaji": "ikura desu ka?",
+    "english": "how much is it/this?",
+    "context": null
+  },
+  {
+    "id": 64,
+    "japanese": "クレジットカードは使えますか",
+    "romaji": "kurejitto kado wa tsukaemasu ka?",
+    "english": "can I use a credit card?",
     "context": null
   }
 ]
