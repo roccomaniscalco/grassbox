@@ -2,6 +2,7 @@ import { Box, Card, Stack, Typography } from "@mui/material"
 import japanesePhrases from "../../../utils/japanesePhrases.json"
 import WidgetContainer from "../../common/WidgetContainer"
 import DictateButton from "./DictateButton"
+import JapanesePreferences from "./JapanesePreferences"
 
 const getRandomPhrase = () => {
   const randomIndex = Math.floor(Math.random() * japanesePhrases.length)
@@ -12,7 +13,7 @@ const JapaneseWidget = () => {
   const phrase = getRandomPhrase()
 
   return (
-    <WidgetContainer>
+    <WidgetContainer PreferencesPanel={JapanesePreferences}>
       <Card variant="outlined">
         <Stack
           direction="row"

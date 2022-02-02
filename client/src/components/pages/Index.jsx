@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material"
 import { GithubProvider } from "../contexts/GithubContext"
+import { JapaneseProvider } from "../contexts/JapaneseContext"
 import { WeatherProvider } from "../contexts/WeatherContext"
 import GithubActivityWidget from "../widgets/github/GithubActivityWidget"
 import JapaneseWidget from "../widgets/japanese/JapaneseWidget"
@@ -14,8 +15,10 @@ const Index = () => {
         </GithubProvider>
       </Grid>
       <Grid container item xs={12} lg={5} spacing={3}>
-        <Grid item xs={12} >
-          <JapaneseWidget />
+        <Grid item xs={12}>
+          <JapaneseProvider>
+            <JapaneseWidget />
+          </JapaneseProvider>
         </Grid>
         <Grid item xs={12}>
           <WeatherProvider>
