@@ -19,7 +19,7 @@ const useDictateJapanese = () => {
   synth.onvoiceschanged = () => setVoice(getJapaneseVoice())
 
   const dictate = (text) => {
-    if (!voice) return
+    if (!voice || isDictating) return
     setIsDictating(true)
     const message = new SpeechSynthesisUtterance()
     message.lang = "ja-JP"
