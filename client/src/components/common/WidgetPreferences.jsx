@@ -1,5 +1,4 @@
-import { Close } from "@mui/icons-material"
-import EditRoundedIcon from "@mui/icons-material/EditRounded"
+import { CloseRounded, EditRounded } from "@mui/icons-material"
 import {
   Box,
   ClickAwayListener,
@@ -41,9 +40,9 @@ const WidgetPreferences = ({ PreferencesPanel, showFab }) => {
       <Zoom in={showFab || showEditWidget}>
         <OptionsFab size="small" onClick={handleClick} id="hey">
           {showEditWidget ? (
-            <Close htmlColor={theme.palette.text.primary} />
+            <CloseRounded htmlColor={theme.palette.text.primary} />
           ) : (
-            <EditRoundedIcon htmlColor={theme.palette.text.primary} />
+            <EditRounded htmlColor={theme.palette.text.primary} />
           )}
         </OptionsFab>
       </Zoom>
