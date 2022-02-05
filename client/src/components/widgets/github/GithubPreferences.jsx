@@ -1,3 +1,4 @@
+import { AccessTimeRounded } from "@mui/icons-material"
 import {
   Paper,
   Stack,
@@ -5,6 +6,7 @@ import {
   ToggleButtonGroup,
   Typography,
 } from "@mui/material"
+import { useTheme } from "@mui/system"
 import { useGithubContext } from "../../contexts/GithubContext"
 
 const getLastYears = (yearCount) => {
@@ -17,6 +19,7 @@ const getLastYears = (yearCount) => {
 }
 
 const GithubPreferences = () => {
+  const theme = useTheme()
   const { year, setYear } = useGithubContext()
   const lastYears = getLastYears(3)
 
@@ -24,26 +27,37 @@ const GithubPreferences = () => {
 
   return (
     <Paper>
-      <Stack p={2} gap={2} width={170}>
+      <Stack p={2} gap={2} width={220}>
         <Typography variant="caption" color="textSecondary">
-          Github Preferences
+          Github preferences
         </Typography>
-        <ToggleButtonGroup
-          orientation="vertical"
-          value={year}
-          exclusive
-          onChange={handleChange}
-          size="small"
-          color="success"
-        >
-          {lastYears.map((year) => (
-            <ToggleButton value={year} aria-label={year} key={year}>
-              <Typography variant="body2" sx={{ textTransform: "capitalize" }}>
-                {year}
-              </Typography>
-            </ToggleButton>
-          ))}
-        </ToggleButtonGroup>
+        <Stack gap={1}>
+          <Stack direction="row" gap={1} alignItems="center">
+            <AccessTimeRounded
+              fontSize="small"
+              htmlColor={theme.palette.action.disabled}
+            />
+            <Typography variant="body2">Contribution period</Typography>
+          </Stack>
+          <ToggleButtonGroup
+            orientation="vertical"
+            value={year}
+            exclusive
+            onChange={handleChange}
+            size="small"
+          >
+            {lastYears.map((year) => (
+              <ToggleButton value={year} aria-label={year} key={year}>
+                <Typography
+                  variant="body2"
+                  sx={{ textTransform: "capitalize" }}
+                >
+                  {year}
+                </Typography>
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+        </Stack>
       </Stack>
     </Paper>
   )

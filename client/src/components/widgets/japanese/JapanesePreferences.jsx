@@ -3,12 +3,18 @@ import {
   Card,
   Slider,
   Stack,
+  styled,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
 } from "@mui/material"
 import { useTheme } from "@mui/system"
 import { useJapaneseContext } from "../../contexts/JapaneseContext"
+
+const DictationSpeedSlider = styled(Slider)(({ theme }) => ({
+  color: theme.palette.success.main,
+  height: 8,
+}))
 
 const JapanesePreferences = () => {
   const theme = useTheme()
@@ -22,7 +28,7 @@ const JapanesePreferences = () => {
   }
   return (
     <Card>
-      <Stack p={2} gap={2} width={300}>
+      <Stack p={2} gap={2} width={280}>
         <Typography variant="caption" color="textSecondary">
           Japanese preferences
         </Typography>
@@ -36,9 +42,9 @@ const JapanesePreferences = () => {
               Dictation speed: {audioSpeed}x
             </Typography>
           </Stack>
-          <Stack direction="row" gap={3} alignItems="center">
+          <Stack direction="row" gap={2} alignItems="center">
             <Typography variant="body2">0.5x</Typography>
-            <Slider
+            <DictationSpeedSlider
               value={audioSpeed}
               marks={marks}
               min={0.5}
