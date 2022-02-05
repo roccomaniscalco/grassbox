@@ -29,7 +29,7 @@ const LocaleInput = () => {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={(e) => handleSubmit(e)} style={{ width: "100%" }}>
       <TextField
         fullWidth
         error={error ? true : false}

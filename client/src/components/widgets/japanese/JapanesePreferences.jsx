@@ -21,7 +21,6 @@ const JapanesePreferences = () => {
   const { audioSpeed, setAudioSpeed, voices, activeVoice, setActiveVoice } =
     useJapaneseContext()
 
-  const marks = [{ value: 1 }]
   const handleSliderChange = (_, value) => setAudioSpeed(value)
   const handleToggleChange = (_, value) => {
     if (value !== null) setActiveVoice(value)
@@ -46,7 +45,7 @@ const JapanesePreferences = () => {
             <Typography variant="body2">0.5x</Typography>
             <DictationSpeedSlider
               value={audioSpeed}
-              marks={marks}
+              marks={[{ value: 1 }]}
               min={0.5}
               step={0.1}
               max={1.5}

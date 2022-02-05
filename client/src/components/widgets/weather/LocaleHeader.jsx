@@ -34,7 +34,7 @@ const LocaleHeader = () => {
       }}
     >
       {/* time and location */}
-      <Box>
+      <Box width="100%">
         <Typography variant="caption" color="success.main">
           {weather ? formatDate(Date.now(), weather.timezone) : <Skeleton />}
         </Typography>

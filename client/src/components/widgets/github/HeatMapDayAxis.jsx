@@ -4,7 +4,7 @@ import { Box } from "@mui/system"
 const HeatMapDayAxis = () => {
   return (
     <Box display="flex">
-      <Stack spacing={1.7} justifyContent="center" mt={2.9}  pl={2} pr={1}>
+      <Stack spacing={2} justifyContent="center" mt={2.6}  pl={2} pr={1}>
         <Typography fontSize="11px" color="textSecondary" textAlign="left">
           Mon
         </Typography>
