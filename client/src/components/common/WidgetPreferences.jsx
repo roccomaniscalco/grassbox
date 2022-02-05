@@ -1,3 +1,4 @@
+import { Close } from "@mui/icons-material"
 import EditRoundedIcon from "@mui/icons-material/EditRounded"
 import {
   Box,
@@ -39,7 +40,11 @@ const WidgetPreferences = ({ PreferencesPanel, showFab }) => {
     <>
       <Zoom in={showFab || showEditWidget}>
         <OptionsFab size="small" onClick={handleClick} id="hey">
-          <EditRoundedIcon htmlColor={theme.palette.text.secondary} />
+          {showEditWidget ? (
+            <Close htmlColor={theme.palette.text.primary} />
+          ) : (
+            <EditRoundedIcon htmlColor={theme.palette.text.primary} />
+          )}
         </OptionsFab>
       </Zoom>
       <Popper
