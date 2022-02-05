@@ -1,7 +1,16 @@
 import EditRoundedIcon from "@mui/icons-material/EditRounded"
-import { Box, Fab, Grow, Popper, styled, useTheme, Zoom } from "@mui/material"
+import {
+  Box,
+  ClickAwayListener,
+  Fab,
+  Grow,
+  Popper,
+  styled,
+  useTheme,
+  Zoom,
+} from "@mui/material"
 import { bool, elementType } from "prop-types"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const OptionsFab = styled(Fab)(({ theme }) => ({
   position: "absolute",
@@ -19,16 +28,16 @@ const WidgetPreferences = ({ PreferencesPanel, showFab }) => {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
+    if (!showEditWidget) setShowEditWidget(true)
+  }
+
+  const handleClickAway = () => {
     setShowEditWidget((previous) => !previous)
   }
 
-  useEffect(() => {
-    if (!showFab) setShowEditWidget(false)
-  }, [showFab])
-
   return (
     <>
-      <Zoom in={showFab}>
+      <Zoom in={showFab || showEditWidget}>
         <OptionsFab size="small" onClick={handleClick} id="hey">
           <EditRoundedIcon htmlColor={theme.palette.text.secondary} />
         </OptionsFab>
@@ -38,13 +47,23 @@ const WidgetPreferences = ({ PreferencesPanel, showFab }) => {
         anchorEl={anchorEl}
         placement="bottom-end"
         transition
+        modifiers={[
+          {
+            name: "offset",
+            options: {
+              offset: [0, 5],
+            },
+          },
+        ]}
       >
         {({ TransitionProps }) => (
-          <Grow {...TransitionProps} style={{ transformOrigin: "top right" }}>
-            <Box>
-              <PreferencesPanel />
-            </Box>
-          </Grow>
+          <ClickAwayListener onClickAway={handleClickAway}>
+            <Grow {...TransitionProps} style={{ transformOrigin: "top right" }}>
+              <Box>
+                <PreferencesPanel />
+              </Box>
+            </Grow>
+          </ClickAwayListener>
         )}
       </Popper>
     </>
