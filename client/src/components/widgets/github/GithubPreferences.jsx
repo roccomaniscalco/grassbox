@@ -1,13 +1,13 @@
 import { AccessTimeRounded } from "@mui/icons-material"
 import {
-  Paper,
   Stack,
   ToggleButton,
   ToggleButtonGroup,
-  Typography,
+  Typography
 } from "@mui/material"
 import { useTheme } from "@mui/system"
 import { useGithubContext } from "../../contexts/GithubContext"
+import GlassBox from "../../styled/GlassBox"
 
 const getLastYears = (yearCount) => {
   const lastYears = ["current"]
@@ -26,7 +26,7 @@ const GithubPreferences = () => {
   const handleChange = (_, year) => year && setYear(year)
 
   return (
-    <Paper>
+    <GlassBox>
       <Stack p={2} gap={2} width={220}>
         <Typography variant="caption" color="textSecondary">
           Github preferences
@@ -59,7 +59,7 @@ const GithubPreferences = () => {
           </ToggleButtonGroup>
         </Stack>
       </Stack>
-    </Paper>
+    </GlassBox>
   )
 }
 
