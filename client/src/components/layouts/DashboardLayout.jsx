@@ -1,25 +1,24 @@
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
-import ChevronRightIcon from "@mui/icons-material/ChevronRight"
-import MailIcon from "@mui/icons-material/Mail"
-import MenuIcon from "@mui/icons-material/Menu"
-import InboxIcon from "@mui/icons-material/MoveToInbox"
-import { useMediaQuery } from "@mui/material"
-import MuiAppBar from "@mui/material/AppBar"
-import Box from "@mui/material/Box"
-import CssBaseline from "@mui/material/CssBaseline"
-import Divider from "@mui/material/Divider"
-import MuiDrawer from "@mui/material/Drawer"
-import IconButton from "@mui/material/IconButton"
-import List from "@mui/material/List"
-import ListItem from "@mui/material/ListItem"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import ListItemText from "@mui/material/ListItemText"
-import { styled, useTheme } from "@mui/material/styles"
-import Toolbar from "@mui/material/Toolbar"
-import Typography from "@mui/material/Typography"
-import * as React from "react"
+import {
+  CloudRounded,
+  GitHub,
+  HomeRounded,
+  PersonRounded,
+  TranslateRounded,
+} from "@mui/icons-material"
+import {
+  AppBar,
+  Box,
+  Divider,
+  List,
+  Drawer,
+  styled,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+} from "@mui/material"
+import ListItemLink from "../common/navigation/ListItemLink"
 
-const drawerWidth = 240
+const drawerWidth = 200
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -36,7 +35,7 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
+  width: 68,
 })
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -48,7 +47,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }))
 
-const AppBar = styled(MuiAppBar, {
+const Header = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
@@ -66,7 +65,7 @@ const AppBar = styled(MuiAppBar, {
   }),
 }))
 
-const Drawer = styled(MuiDrawer, {
+const Sidebar = styled(Drawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   width: drawerWidth,
@@ -88,35 +87,36 @@ const DashboardLayout = () => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={isOpen}>
-          <Toolbar />
-      </AppBar>
-      <Drawer variant="permanent" open={isOpen}>
-        <DrawerHeader/>
+      <Header position="fixed" open={isOpen}>
+        <Toolbar />
+      </Header>
+      <Sidebar variant="permanent" open={isOpen}>
+        <DrawerHeader />
         <Divider />
-        <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <List sx={{ pt: 2.5 }} dense>
+          <ListItemLink Icon={HomeRounded} text="Dashboard" href="/" />
+          <ListItemLink
+            Icon={PersonRounded}
+            text="Users"
+            href="/experimental/users"
+          />
+          <ListItemLink
+            Icon={CloudRounded}
+            text="Weather"
+            href="/experimental/weather"
+          />
+          <ListItemLink
+            Icon={GitHub}
+            text="Github"
+            href="/experimental/github"
+          />
+          <ListItemLink
+            Icon={TranslateRounded}
+            text="Japanese"
+            href="/experimental/japanese"
+          />
         </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+      </Sidebar>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
