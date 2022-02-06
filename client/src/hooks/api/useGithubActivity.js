@@ -1,8 +1,8 @@
-import useSWR from "swr"
+import useSWRImmutable from "swr/immutable"
 import fetcher from "../../utils/fetcher"
 
 const useGithubActivity = (username, year = "current") => {
-  const { data, error } = useSWR(
+  const { data, error } = useSWRImmutable(
     `/api/github/activity/${username}/${year}`,
     fetchGithubActivity
   )
