@@ -22,8 +22,8 @@ const ColorModeProvider = ({ children }) => {
     () =>
       createTheme({
         zIndex: {
-          appBar: 999,
-          drawer: 998,
+          appBar: 998,
+          drawer: 999,
         },
         palette: {
           mode,

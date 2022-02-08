@@ -23,7 +23,7 @@ const Tooltip = styled(({ className, ...props }) => (
 }))
 
 const ListItemLink = ({ href, Icon, text }) => {
-  const isMini = useMediaQuery((theme) => theme.breakpoints.down("lg"))
+  const isMini = useMediaQuery((theme) => theme.breakpoints.down("md"))
 
   if (isMini)
     return (
